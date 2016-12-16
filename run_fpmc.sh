@@ -1,7 +1,8 @@
 
 cd fpmc/
+source setup_lxplus.sh
 ./fpmc-hepmc \
 	--cfg Datacards/dataQED_WW \
 	--comenergy 13000 \
-	--fileout FPMC_WW_13TeV.hepmc \
+	--fileout dataWW.hepmc \
 	--nevents 10

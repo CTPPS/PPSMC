@@ -4,9 +4,11 @@
 
 # PARAMETERS:
 CMSSW=CMSSW_8_0_1 # or later
+ARCH=slc6_amd64_gcc493
 
 # SETUP:
 AREA=$PWD
+SCRAM_ARCH=$ARCH
 scram project $CMSSW
 cd $CMSSW/src
 eval `scramv1 runtime -sh`
