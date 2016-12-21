@@ -2,7 +2,7 @@
 cd fpmc/
 source setup_lxplus.sh
 ./fpmc-hepmc \
-	--cfg Datacards/dataQED_WW \
+	--cfg Datacards/dataDPE_Dijets \
 	--comenergy 13000 \
-	--fileout dataWW.hepmc \
-	--nevents 10
+	--fileout data_dijets.hepmc \
+	--nevents 100
