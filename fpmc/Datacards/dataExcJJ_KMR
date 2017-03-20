@@ -1,0 +1,14 @@
+OUTPUT      0
+OUTPUTLHE   1
+LHEFILE     'FPMC_KMR_Dijets_13TeV_PTMIN_20.lhe'
+MAXEV       1000
+TYPEPR      'EXC'
+TYPINT      'QCD'
+ECMS        13000.
+IPROC       16013
+NFLUX       16
+YJMAX       2.5
+YJMIN      -2.5
+PTMIN       20.
+YWWMIN      0.002
+YWWMAX      0.2
