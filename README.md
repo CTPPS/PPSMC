@@ -29,3 +29,12 @@ Setup and run the CT-PPS fast simulation taking the produced event sample from f
 It propagates the hepMC input file to the ED Filter meant to be simulated for detector effects.
 
 -- Parameters: CMSSW release, hepMC input file, and filename for output configuration.
+
+# known issues
+Fragment for CMSSW simulation of SuperCHICv2.06 samples due to incompatibility with hadronization in PYTHIA8:
+
+         |    100   Abort from Pythia::next: parton+hadronLevel failed; giving up                                           
+         |  10000   Error in BeamRemnants::setKinematics: no momentum left for beam remnants                               
+         |   1000   Error in Pythia::next: partonLevel failed; try again
+
+FPMC produced output in LHE format lacking color states, which crashes PYTHIA8. File fpmc_lhe.f contains a few corrections for GammaGamma samples.
