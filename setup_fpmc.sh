@@ -2,7 +2,8 @@
 # SHELL SCRIPT TO BUILD FPMC IN LXPLUS
 #
 
-AREA=$PWecho 'Setting local area at: $AREA'
+AREA=$PWD
+echo "Setting local area at: $AREA"
 echo 'Cloning git repository for FPMC'
 git clone https://github.com/ForwardPhysicsMC/fpmc.git
 cd $AREA/fpmc/
