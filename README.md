@@ -2,7 +2,7 @@
 
 Repository of the Monte Carlo working group of PPS forward detector [twiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/CTPPSMC).
 
-*NOTE*: to download a single file/folder, execute the following command:
+**NOTE: to download a single file/folder, execute the following command:**
 
 `svn checkout https://github.com/diemort/PPSMC/trunk/<file or folder>`
 
