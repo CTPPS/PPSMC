@@ -1,6 +1,6 @@
 # PPSMC WG repo
 
-Repository of the Monte Carlo working group of PPS forward detector [twiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/CTPPSMC).
+Repository of the Monte Carlo working group of PPS forward detector [twiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/CTppsMC).
 
 **NOTE: to download a single folder, execute the following command:**
 
