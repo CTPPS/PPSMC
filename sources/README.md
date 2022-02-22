@@ -10,8 +10,19 @@ The shell scripts are intended to document and to organized the steps needed to 
 
 One can simply run all steps from a given directory by choosing the necessary parameters for aparticular case, e.g. CMSSW release, entries in the fpmc input card and the cmsDriver input parameters.
 
-## known issues
-Generator files placed in the `issues` folder for specific case treatment.
+## setup_fpmc.sh
+Build and compile an working area for the FPMC event generator with a wrapper for hepMC output;
 
-### Private Production
-The folder PrivProd contains the machinery needed to produce simulated private samples for Summer16, Fall17, and Autmn18 scenarios. Instructions listed the README file inside the folder.
+## run_fpmc.sh
+Setup and run a FPMC instance with minimal parameters for HepMC output:
+
+```
+        --cfg Datacards/dataQED_WW \
+        --comenergy 13000 \
+        --fileout dataWW.hepmc \
+        --nevents 10
+```
+
+Other parameters can be added folliwng the instructions in the FPMC [manual](https://arxiv.org/pdf/1102.2531.pdf).
+
+Directives for LHE output given in the bash macro.
