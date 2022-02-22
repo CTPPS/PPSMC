@@ -1,6 +1,6 @@
-# PPSMC WG repo
+# Monte Carlo generators sources
 
-Repository of the Monte Carlo working group of PPS forward detector [twiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/CTPPSMC).
+Repository of the Monte Carlo working group of PPS forward detector [twiki](https://twiki.cern.ch/twiki/bin/viewauth/CMS/CTppsMC).
 
 **NOTE: to download a single folder, execute the following command:**
 
@@ -26,3 +26,16 @@ Setup and run a FPMC instance with minimal parameters for HepMC output:
 Other parameters can be added folliwng the instructions in the FPMC [manual](https://arxiv.org/pdf/1102.2531.pdf).
 
 Directives for LHE output given in the bash macro.
+
+## Sources
+
+LPAIR [repo](https://github.com/forthommel/lpair)
+FPMC [repo](https://github.com/fpmc-hep/fpmc)
+Herwig7 [site](https://herwig.hepforge.org/tutorials/index.html)
+Herwig++ [site](https://herwig.hepforge.org/versions.html)
+Herwig v6.5 [site](https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig65.html)
+ExHuMe [site](https://exhume.hepforge.org/)
+SuperCHIC [site](https://superchic.hepforge.org/)
+PYTHIA [site](http://home.thep.lu.se/~torbjorn/Pythia.html)
+ExDiff [site](https://exdiff.hepforge.org/)
+CepGen [site](https://cepgen.hepforge.org/)
