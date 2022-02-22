@@ -2,7 +2,7 @@
 The folder PrivProd contains the machinery needed to produce simulated private samples for Summer16, Fall17, and Autmn18 scenarios. For all years, the set of files consist of:
 
 - `config.py`: CMSSW configuration file;
-- `submitter\*`: Bash macro to split the production in a certain numbers of jobs;
+- `submitter*`: Bash macro to split the production in a certain numbers of jobs;
 - `script.sh`: Bash macro for LXBATCH job run;
 - `condor.sub`: HTCondor script to submit jobs.
 
