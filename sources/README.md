@@ -29,13 +29,13 @@ Directives for LHE output given in the bash macro.
 
 ## Sources
 
-LPAIR [repo](https://github.com/forthommel/lpair)
-FPMC [repo](https://github.com/fpmc-hep/fpmc)
-Herwig7 [site](https://herwig.hepforge.org/tutorials/index.html)
-Herwig++ [site](https://herwig.hepforge.org/versions.html)
-Herwig v6.5 [site](https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig65.html)
-ExHuMe [site](https://exhume.hepforge.org/)
-SuperCHIC [site](https://superchic.hepforge.org/)
-PYTHIA [site](http://home.thep.lu.se/~torbjorn/Pythia.html)
-ExDiff [site](https://exdiff.hepforge.org/)
-CepGen [site](https://cepgen.hepforge.org/)
+- LPAIR [repo](https://github.com/forthommel/lpair)
+- FPMC [repo](https://github.com/fpmc-hep/fpmc)
+- Herwig7 [site](https://herwig.hepforge.org/tutorials/index.html)
+- Herwig++ [site](https://herwig.hepforge.org/versions.html)
+- Herwig v6.5 [site](https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig65.html)
+- ExHuMe [site](https://exhume.hepforge.org/)
+- SuperCHIC [site](https://superchic.hepforge.org/)
+- PYTHIA [site](http://home.thep.lu.se/~torbjorn/Pythia.html)
+- ExDiff [site](https://exdiff.hepforge.org/)
+- CepGen [site](https://cepgen.hepforge.org/)
