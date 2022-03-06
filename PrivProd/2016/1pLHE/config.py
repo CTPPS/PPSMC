@@ -19,7 +19,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("LHESource",
-     fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_pps/MC/requests_2018/private/AAZZ_bSM/LHE/xinput'),
+     fileNames = cms.untracked.vstring('file:xinput'),
 #     skipEvents=cms.untracked.uint32(xskip)
 )
 

@@ -1,12 +1,28 @@
 #!/bin/sh
 
+# INPUT PARAMETERS
+
+# LHE input files
+input="FPMC_WW_bSM_13tev_a0w_5e-6_aCw_0_decayALL_pt0.lhe"
+# Area with LHE input file and storage for output files
+farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM"
+# Number of events to be processed
+nevt=1000
+# Split in how many output files
+nfiles=1
+
+# SCRIPT
+
 if [ $# -eq 0  ]
 then
-   echo "Missing arguments; usage ./submitterLHEtopLHE [files tag] [jobname]"
-   echo "Usage: ./submitterLHEtopLHE [files tag] [jobname]"
+   echo ">>> ERROR: missing arguments"
+   echo "Usage: ./generate-pLHE [files tag] [jobname]"
+   echo "[files tag] will be used for the filename of the output files"
+   echo "[jobname] is the condor job name to appear in the condor queue"
    exit 1
 fi
 
+echo -e "\e[4mOutput area:\e[0m $farea"
 echo -e "\e[4mFile tag:\e[0m $1"
 echo -e "\e[4mjobname:\e[0m $2"
 read -p "OK? Press [enter]"
@@ -18,14 +34,8 @@ mkdir -p 0cfg
 mkdir -p 1sh
 mkdir -p 2sub
 mkdir -p 3err
-mkdir -p 3out
-mkdir -p 4log
 
 localpwd=$(pwd)
-
-nevt=100000
-nfiles=1
-input="$1.lhe"
 
 block=$(( nevt/nfiles ))
 
@@ -48,6 +58,8 @@ do
    sed -i "s/xfirst/$first/g" 0cfg/$cfginput
    cp ../script.sh 1sh/"$1"_"$i".sh
    sed -i "s/xcfginput/$cfginput/g" 1sh/$shinput
+   sed -i "s?xarea?$farea?g" 1sh/$shinput
+   sed -i "s/xinput/$input/g" 1sh/$shinput
    sed -i "s/xoutput/$output/g" 1sh/$shinput
    sed -i "s/xjob/$1/g" 1sh/$shinput
    sed -i 's?xpwd?'`pwd`'?' 1sh/$shinput
@@ -57,7 +69,8 @@ do
    sed -i "s/xjobname/$2_$i/g" 2sub/$subinput
 done
 
-exit 1
+# Comment the line below to submit jobs
+#exit 1
 
 cd 2sub
 for i in *.sub;
