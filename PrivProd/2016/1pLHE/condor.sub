@@ -1,7 +1,7 @@
 executable            = ../1sh/xshinput
 arguments             = $(ClusterId) $(ProcId)
 requirements          = (OpSysAndVer =?= "CentOS7")
-error                 = ../3err/xerr.err
+error                 = ../3err/xerr.$(ClusterId).err
 +JobBatchName         = "xjobname"
 +JobFlavour           = "espresso"
 queue
