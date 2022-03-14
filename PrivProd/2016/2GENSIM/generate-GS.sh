@@ -35,7 +35,7 @@ echo -e "\e[4mjobname:\e[0m $2"
 read -p "OK? Press [enter]"
 
 # Create local job area:
-step=GENSIM
+step="GENSIM"
 mkdir -p $1
 cd $1
 mkdir -p 0cfg
