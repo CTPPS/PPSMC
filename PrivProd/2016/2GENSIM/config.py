@@ -30,9 +30,10 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("PoolSource",
     secondaryFileNames = cms.untracked.vstring(),
-    fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_pps/MC/requests_2016mc/private/AAZZ_bSM/pLHE/xjob/xinput'),
+    fileNames = cms.untracked.vstring('file:xinput'),
     firstEvent=cms.untracked.uint32(xfirst),
-    inputCommands = cms.untracked.vstring('keep *', 
+    inputCommands = cms.untracked.vstring(
+        'keep *', 
         'drop LHEXMLStringProduct_*_*_*'),
     dropDescendantsOfDroppedBranches = cms.untracked.bool(False)
 )
