@@ -35,20 +35,16 @@ mkdir -p 1sh
 mkdir -p 2sub
 mkdir -p 3err
 
-localpwd=$(pwd)
-
 block=$(( nevt/nfiles ))
 
-end=$nfiles
-
-for ((i=0; i<=end-1; i++));
+for ((i=0; i<=$nfiles-1; i++));
 do
    cfginput="$1"_cfg_"$i".py
    shinput="$1"_"$i".sh
    subinput="$1"_"$i".sub
    output="$1_pLHE_$i.root"
-   blocks=$(( i*100+1 ))
-   first=$(( i*1000+1 ))
+   blocks=$(( i*$nfiles+1 ))
+   first=$(( i*$block+1 ))
    cp ../config.py 0cfg/$cfginput
    sed -i "s/xinput/$input/g" 0cfg/$cfginput
    sed -i "s/xevt/$block/g" 0cfg/$cfginput
