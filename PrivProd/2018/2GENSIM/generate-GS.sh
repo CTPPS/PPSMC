@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 ###################################################################
-#Script Name : generate-pLHE
-#Description : generate pLHE step in CMSSW simulation chain
+#Script Name : generate-GS
+#Description : generate GS step in CMSSW simulation chain
 #Args        : work area + codor job name
 #Author      : Gustavo Gil da Silveira (UFRGS|UERJ, Brazil)
 ###################################################################
@@ -10,7 +10,7 @@
 # INPUT PARAMETERS
 
 # Area with LHE input file and storage for output files
-farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM"
+farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM/2018"
 # Number of events to be processed per file
 nevt=1000
 # Split in how many output files
