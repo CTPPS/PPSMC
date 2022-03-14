@@ -62,7 +62,6 @@ do
    # Replace strings in auxiliary files with user inputs:
    sed -i "s/xinput/$input/g" 0cfg/$cfginput
    sed -i "s/xfileout/$output/g" 0cfg/$cfginput
-   sed -i "s/xjob/$1/g" 0cfg/$cfginput
    sed -i "s/xfirst/$first/g" 0cfg/$cfginput
    sed -i "s/xevt/$block/g" 0cfg/$cfginput
    # Copy script template:
