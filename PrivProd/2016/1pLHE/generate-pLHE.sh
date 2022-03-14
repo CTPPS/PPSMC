@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash 
+
+###################################################################
+#Script Name : generate-pLHE
+#Description : generate pLHE step in CMSSW simulation chain
+#Args        : work area + codor job name
+#Author      : Gustavo Gil da Silveira (UFRGS|UERJ, Brazil)
+###################################################################
 
 # INPUT PARAMETERS
 
@@ -87,3 +94,5 @@ for i in *.sub;
 do
    condor_submit "$i"
 done
+
+### END
