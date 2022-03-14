@@ -37,6 +37,7 @@ echo -e "\e[4mjobname:\e[0m $2"
 read -p "OK? Press [enter]"
 
 # Create local job area:
+step="pLHE"
 mkdir -p $1
 cd $1
 mkdir -p 0cfg
@@ -54,7 +55,7 @@ do
    cfginput="$1"_cfg_"$i".py
    shinput="$1"_"$i".sh
    subinput="$1"_"$i".sub
-   output="$1_pLHE_$i.root"
+   output="$1_"${step}"_$i.root"
    # Set blocks and first events per file:
    blocks=$(( i*$nfiles+1 ))
    first=$(( i*$block+1 ))
