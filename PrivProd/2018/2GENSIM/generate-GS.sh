@@ -9,11 +9,11 @@
 
 # INPUT PARAMETERS
 
-# Area with LHE input file and storage for output files
+# Area with pLHE input file and storage for output files:
 farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM/2018"
-# Number of events to be processed per file
+# Number of events to be processed per file:
 nevt=1000
-# Split in how many output files
+# Split in how many output files:
 nfiles=10
 
 # SCRIPT
