@@ -10,13 +10,13 @@
 # INPUT PARAMETERS
 
 # LHE input files
-input="FPMC_WW_bSM_13tev_a0w_5e-6_aCw_0_decayALL_pt0.lhe"
+input=""
 # Area with LHE input file and storage for output files
-farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM/2017"
+farea=""
 # Number of events to be processed
-nevt=1000
+nevt=0
 # Split in how many output files
-nfiles=1
+nfiles=0
 
 # SCRIPT
 
