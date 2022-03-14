@@ -10,10 +10,11 @@ scram project CMSSW_8_0_31
 cd CMSSW_8_0_31/src/
 eval `scramv1 runtime -sh`
 cp xpwd/0cfg/xcfginput ./
+cp xarea/GENSIM/xinput ./
 scramv1 b
 cmsRun xcfginput
-mkdir -p /eos/cms/store/group/phys_pps/MC/requests_2016mc/private/AAZZ_bSM/DRPremix/xjob/
-rsync -avPz xoutput /eos/cms/store/group/phys_pps/MC/requests_2016mc/private/AAZZ_bSM/DRPremix/xjob/xoutput
+mkdir -p xarea/DRPremix/xjob/
+rsync -avPz xoutput xarea/DRPremix/xjob/xoutput
 rm -rf xoutput
 EndOfTestFile
 chmod +x local.sh
