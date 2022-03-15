@@ -110,6 +110,10 @@ associatePatAlgosToolsTask(process)
 for path in process.paths:
 	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 
 
+#Setup FWK for multithreaded
+process.options.numberOfThreads=cms.untracked.uint32(8)
+process.options.numberOfStreams=cms.untracked.uint32(0)
+
 # customisation of the process.
 
 # Automatic addition of the customisation function from Configuration.DataProcessing.Utils
