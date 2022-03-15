@@ -10,13 +10,13 @@
 # INPUT PARAMETERS
 
 # LHE input files
-input=""
+input="FPMC_WW_bSM_13tev_a0w_5e-6_aCw_0_decayALL_pt0.lhe"
 # Area with LHE input file and storage for output files
-farea=""
+farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM/2018"
 # Number of events to be processed
-nevt=0
+nevt=1000
 # Split in how many output files
-nfiles=0
+nfiles=1
 
 # SCRIPT
 
@@ -77,6 +77,7 @@ do
    sed -i "s/xoutput/$output/g" 1sh/$shinput
    sed -i "s/xjob/$1/g" 1sh/$shinput
    sed -i 's?xpwd?'`pwd`'?' 1sh/$shinput
+   sed -i 's?xeos?root://eoscms.cern.ch?' 1sh/$shinput
    # Copy condor template:
    cp ../condor.sub 2sub/$subinput
    # Replace strings in auxiliary files with user inputs:
