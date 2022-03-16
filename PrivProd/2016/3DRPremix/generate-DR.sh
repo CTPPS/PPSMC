@@ -10,18 +10,18 @@
 # INPUT PARAMETERS
 
 # Area with GS input file and storage for output files:
-farea=""
+farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM/2016"
 # Number of events to be processed:
-nevt=0
+nevt=1000
 # Split in how many output files:
-nfiles=0
+nfiles=10
 
 # GRID CERTIFICATE
 # Place your personal GRID certificate at /afs/cern.ch/user/<u>/<user>/private/
 # with permissions set to 0600
 
 # User GRID certificate filename, e.g., x509up_u12345: 
-gridcert=""
+gridcert="x509up_u37419"
 
 # SCRIPT
 
@@ -72,12 +72,15 @@ do
    # Copy script template:
    cp ../script.sh 1sh/"$1"_"$i".sh
    # Replace strings in auxiliary files with user inputs:
+   sed -i "s?xarea?$farea?g" 1sh/$shinput
    sed -i "s/xcfginput/$cfginput/g" 1sh/$shinput
+   sed -i "s/xinput/$input/g" 1sh/$shinput
    sed -i "s/xoutput/$output/g" 1sh/$shinput
    sed -i "s/xjob/$1/g" 1sh/$shinput
    sed -i 's?xpwd?'`pwd`'?' 1sh/$shinput
    sed -i 's?xhome?'`echo $HOME`'?' 1sh/$shinput
    sed -i "s/xcert/$gridcert/g" 1sh/$shinput
+   sed -i 's?xeos?root://eoscms.cern.ch?' 1sh/$shinput
    # Copy condor template:
    cp ../condor.sub 2sub/$subinput
    # Replace strings in auxiliary files with user inputs:
