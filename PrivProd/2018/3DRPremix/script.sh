@@ -1,6 +1,7 @@
 #!/bin/bash
 cat <<'EndOfTestFile' > local.sh
 #!/bin/bash
+export EOS_MGM_URL=root://eoscms.cern.ch
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 export X509_USER_PROXY=xhome/private/xcert
 voms-proxy-info -all
