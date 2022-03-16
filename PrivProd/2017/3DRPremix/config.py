@@ -37,7 +37,7 @@ process.source = cms.Source("PoolSource",
 )
 
 process.options = cms.untracked.PSet(
-
+#    SkipEvent = cms.untracked.vstring('StdException')
 )
 
 # Production Info
@@ -62,7 +62,8 @@ process.PREMIXRAWoutput = cms.OutputModule("PoolOutputModule",
 # Additional output definition
 
 # Other statements
-mixlist = FileUtils.loadListFromFile ('mix_list.txt')
+import FWCore.Utilities.FileUtils as FileUtils
+mixlist = FileUtils.loadListFromFile ('mixlist.txt')
 process.mix.digitizers = cms.PSet(process.theDigitizersMixPreMix)
 process.mixData.input.fileNames = cms.untracked.vstring( *mixlist )
 from Configuration.AlCa.GlobalTag import GlobalTag

@@ -4,7 +4,6 @@
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
 # with command line options: --python_filename FSQ-RunIISummer16DR80Premix-00003_1_cfg.py --eventcontent PREMIXRAW --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-RAW --fileout file:FSQ-RunIISummer16DR80Premix-00003_0.root --pileup_input dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --filein dbs:/GGToZZ_bSM-AcZ_-1e-5_Pt-15_13TeV-fpmc-herwig6/RunIISummer15GS-MCRUN2_71_V1-v2/GEN-SIM --datamix PreMix --era Run2_2016 --no_exec --mc -n 84
 import FWCore.ParameterSet.Config as cms
-import FWCore.Utilities.FileUtils as FileUtils
 
 from Configuration.StandardSequences.Eras import eras
 
@@ -38,7 +37,7 @@ process.source = cms.Source("PoolSource",
 )
 
 process.options = cms.untracked.PSet(
-
+#    SkipEvent = cms.untracked.vstring('StdException')
 )
 
 # Production Info
@@ -64,7 +63,8 @@ process.PREMIXRAWoutput = cms.OutputModule("PoolOutputModule",
 # Additional output definition
 
 # Other statements
-mixlist = FileUtils.loadListFromFile ('mix_list.txt')
+import FWCore.Utilities.FileUtils as FileUtils
+mixlist = FileUtils.loadListFromFile ('mixlist.txt')
 process.mix.digitizers = cms.PSet(process.theDigitizersMixPreMix)
 process.mixData.input.fileNames = cms.untracked.vstring( *mixlist )
 from Configuration.AlCa.GlobalTag import GlobalTag
