@@ -30,9 +30,10 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("PoolSource",
     secondaryFileNames = cms.untracked.vstring(),
-    fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_pps/MC/requests_2016mc/private/AAZZ_bSM/pLHE/xjob/xinput'),
+    fileNames = cms.untracked.vstring('file:xinput'),
     firstEvent=cms.untracked.uint32(xfirst),
-    inputCommands = cms.untracked.vstring('keep *', 
+    inputCommands = cms.untracked.vstring(
+        'keep *', 
         'drop LHEXMLStringProduct_*_*_*'),
     dropDescendantsOfDroppedBranches = cms.untracked.bool(False)
 )
@@ -100,6 +101,10 @@ process.schedule = cms.Schedule(process.generation_step,process.genfiltersummary
 # filter all path with the production filter sequence
 for path in process.paths:
 	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 
+
+#Setup FWK for multithreaded
+process.options.numberOfThreads=cms.untracked.uint32(8)
+process.options.numberOfStreams=cms.untracked.uint32(0)
 
 # customisation of the process.
 
