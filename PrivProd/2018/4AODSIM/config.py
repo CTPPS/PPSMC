@@ -32,7 +32,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_pps/MC/requests_2018/private/AAZZ_bSM/DRPremix/xjob/xinput'),
+    fileNames = cms.untracked.vstring('file:xinput'),
     secondaryFileNames = cms.untracked.vstring()
 )
 
