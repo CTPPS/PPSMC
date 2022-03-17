@@ -10,18 +10,18 @@
 # INPUT PARAMETERS
 
 # Area with GS input file and storage for output files:
-farea="/eos/cms/store/group/phys_pps/MC/misc/test-area/AAWW_bSM/2016"
+farea=""
 # Number of events to be processed:
-nevt=1000
+nevt=0
 # Split in how many output files:
-nfiles=10
+nfiles=0
 
 # GRID CERTIFICATE
 # Place your personal GRID certificate at /afs/cern.ch/user/<u>/<user>/private/
 # with permissions set to 0600
 
 # User GRID certificate filename, e.g., x509up_u12345: 
-gridcert="x509up_u37419"
+gridcert="x509up_u"
 
 # SCRIPT
 
