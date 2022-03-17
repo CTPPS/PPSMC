@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 cat <<'EndOfTestFile' > local.sh
-#!/bin/sh
+#!/bin/bash
+export EOS_MGM_URL=root://eoscms.cern.ch
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 export X509_USER_PROXY=xhome/private/xcert
 voms-proxy-info -all
@@ -9,12 +10,14 @@ export SCRAM_ARCH=slc6_amd64_gcc630
 scram project CMSSW_9_4_7
 cd CMSSW_9_4_7/src/
 eval `scramv1 runtime -sh`
-cp xpwd/0cfg/xcfginput ./
+cp xpwd/0cfg/xcfginput ./xcfginput
+cp xpwd/../mixlist.txt ./mixlist.txt
+xrdcp -s xeos/xarea/GENSIM/xjob/xinput ./xinput
 scramv1 b
 cmsRun xcfginput
-mkdir -p /eos/cms/store/group/phys_pps/MC/requests_2017mcv2/private/AAZZ_bSM/DRPremix/xjob/
-rsync -avPz xoutput /eos/cms/store/group/phys_pps/MC/requests_2017mcv2/private/AAZZ_bSM/DRPremix/xjob/xoutput
-rm -rf xoutput
+xrdfs mkdir -p xeos/xarea/DRPremix/xjob/
+xrdcp -f -s xoutput xeos/xarea/DRPremix/xjob/xoutput
+rm -rf *
 EndOfTestFile
 chmod +x local.sh
 

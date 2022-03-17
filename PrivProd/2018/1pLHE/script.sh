@@ -1,17 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 cat <<'EndOfTestFile' > local.sh
-#!/bin/sh
+#!/bin/bash
+export EOS_MGM_URL=root://eoscms.cern.ch
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 export SCRAM_ARCH=slc6_amd64_gcc700
 scram project CMSSW_10_2_22
 cd CMSSW_10_2_22/src/
 eval `scramv1 runtime -sh`
-cp xpwd/0cfg/xcfginput ./
+cp xpwd/0cfg/xcfginput ./xcfginput
+xrdcp -s xeos/xarea/xinput ./xinput
 scramv1 b
 cmsRun xcfginput
-mkdir /eos/cms/store/group/phys_pps/MC/requests_2018/private/AAZZ_bSM/pLHE/xjob/
-rsync -avPz xoutput /eos/cms/store/group/phys_pps/MC/requests_2018/private/AAZZ_bSM/pLHE/xjob/xoutput
-rm -rf xoutput
+xrdfs mkdir -p xeos/xarea/pLHE/xjob/
+xrdcp -f -s xoutput xeos/xarea/pLHE/xjob/xoutput
+rm -rf *
 EndOfTestFile
 chmod +x local.sh
 

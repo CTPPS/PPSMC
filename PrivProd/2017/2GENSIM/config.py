@@ -32,9 +32,10 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("PoolSource",
     dropDescendantsOfDroppedBranches = cms.untracked.bool(False),
-    fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_pps/MC/requests_2017mcv2/private/AAZZ_bSM/pLHE/xjob/xinput'),
+    fileNames = cms.untracked.vstring('file:xinput'),
     firstEvent=cms.untracked.uint32(xfirst),
-    inputCommands = cms.untracked.vstring('keep *', 
+    inputCommands = cms.untracked.vstring(
+        'keep *', 
         'drop LHEXMLStringProduct_*_*_*'),
     secondaryFileNames = cms.untracked.vstring(),
 )
@@ -107,6 +108,7 @@ associatePatAlgosToolsTask(process)
 #Setup FWK for multithreaded
 process.options.numberOfThreads=cms.untracked.uint32(8)
 process.options.numberOfStreams=cms.untracked.uint32(0)
+
 # filter all path with the production filter sequence
 for path in process.paths:
 	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 

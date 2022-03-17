@@ -28,7 +28,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-        fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_pps/MC/requests_2017mcv2/private/WW_bSM/AODSIM/xjob/xinput'),
+        fileNames = cms.untracked.vstring('file:xinput'),
     secondaryFileNames = cms.untracked.vstring()
 )
 
@@ -164,6 +164,9 @@ process = addMonitoring(process)
 #do not add changes to your config after this point (unless you know what you are doing)
 from FWCore.ParameterSet.Utilities import convertToUnscheduled
 process=convertToUnscheduled(process)
+
+process.options.numberOfThreads=cms.untracked.uint32(8)
+process.options.numberOfStreams=cms.untracked.uint32(0)
 
 # customisation of the process.
 
