@@ -9,8 +9,6 @@
 
 # INPUT PARAMETERS
 
-# LHE input files
-input=""
 # Area with LHE input file and storage for output files
 farea=""
 # Number of events to be processed
@@ -52,6 +50,7 @@ block=$(( nevt/nfiles ))
 for ((i=0; i<=$nfiles-1; i++));
 do
    # Define the auxiliary files:
+   input="$1".lhe
    cfginput="$1"_cfg_"$i".py
    shinput="$1"_"$i".sh
    subinput="$1"_"$i".sub
