@@ -3,7 +3,7 @@
 ###################################################################
 #Script Name : generate-AOD
 #Description : generate AOD step in CMSSW simulation chain
-#Args        : work area + codor job name
+#Args        : work area + condor job name
 #Author      : Gustavo Gil da Silveira (UFRGS|UERJ, Brazil)
 ###################################################################
 
