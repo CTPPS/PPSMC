@@ -7,16 +7,11 @@
 #Author      : Gustavo Gil da Silveira (UFRGS|UERJ, Brazil)
 ###################################################################
 
-# INPUT PARAMETERS
+# Import user input parameters:
+. ../../input
 
-# Area with pLHE input file and storage for output files:
-farea=""
-# Number of events to be processed per file:
-nevt=0
-# Split in how many output files:
-nfiles=0
-
-# SCRIPT
+# Defining the output area based on user input:
+outarea=${farea}/2016
 
 # Check wether user has provided the necessary parameters:
 if [ $# -eq 0  ]
@@ -26,6 +21,26 @@ then
    echo "[files tag] will be used for the filename of the output files"
    echo "[jobname] is the condor job name to appear in the condor queue"
    exit 1
+fi
+
+if [ -z "$input" ];
+then
+    echo ">>> ERROR: missing input LHE file"
+    echo "Define the LHE file in the input card"
+    exit 1
+fi
+
+if [ $nevt -lt 1 || $nfiles -lt 1 ];
+then
+    echo ">>> ERROR: irrational number of events/files"
+    echo "Define a number of events/files to be processed"
+    exit 1
+fi
+
+# Use current location in case no storage area is set:
+if [ -z "$farea" ];
+then
+    farea=./
 fi
 
 # Confirm user parameters are good:

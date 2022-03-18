@@ -7,16 +7,11 @@
 #Author      : Gustavo Gil da Silveira (UFRGS|UERJ, Brazil)
 ###################################################################
 
-# INPUT PARAMETERS
+# Import user input parameters:
+. ../../input
 
-# Area with LHE input file and storage for output files
-farea=""
-# Number of events to be processed
-nevt=0
-# Split in how many output files
-nfiles=0
-
-# SCRIPT
+# Defining the output area based on user input:
+outarea=${farea}/2016
 
 # Check wether user has provided the necessary parameters:
 if [ $# -eq 0  ]
@@ -28,8 +23,29 @@ then
    exit 1
 fi
 
+if [ -z "$inputlhe" ];
+then
+    echo ">>> ERROR: missing input LHE file"
+    echo "Define the LHE file in the input card"
+    exit 1
+fi
+
+if [ $nevt -lt 1 || $nfiles -lt 1 ];
+then
+    echo ">>> ERROR: irrational number of events/files"
+    echo "Define a number of events/files to be processed"
+    exit 1
+fi
+
+# Use current location in case no storage area is set:
+if [ -z "$farea" ];
+then
+    farea=./
+fi
+
 # Confirm user parameters are good:
-echo -e "\e[4mOutput area:\e[0m $farea"
+echo -e "\e[4mInput file:\e[0m $input"
+echo -e "\e[4mOutput area:\e[0m $outarea"
 echo -e "\e[4mFile tag:\e[0m $1"
 echo -e "\e[4mjobname:\e[0m $2"
 read -p "OK? Press [enter]"
@@ -50,7 +66,7 @@ block=$(( nevt/nfiles ))
 for ((i=0; i<=$nfiles-1; i++));
 do
    # Define the auxiliary files:
-   input="$1".lhe
+   input=$inputlhe
    cfginput="$1"_cfg_"$i".py
    shinput="$1"_"$i".sh
    subinput="$1"_"$i".sub
@@ -61,7 +77,7 @@ do
    # Copy config template:
    cp ../config.py 0cfg/$cfginput
    # Replace strings in auxiliary files with user inputs:
-   sed -i "s/xinput/$input/g" 0cfg/$cfginput
+   sed -i "s/xinput/`baseline $input`/g" 0cfg/$cfginput
    sed -i "s/xevt/$block/g" 0cfg/$cfginput
    sed -i "s/xskip/$(( i*block ))/g" 0cfg/$cfginput
    sed -i "s/xfileout/$output/g" 0cfg/$cfginput
@@ -71,7 +87,7 @@ do
    cp ../script.sh 1sh/"$1"_"$i".sh
    # Replace strings in auxiliary files with user inputs:
    sed -i "s/xcfginput/$cfginput/g" 1sh/$shinput
-   sed -i "s?xarea?$farea?g" 1sh/$shinput
+   sed -i "s?xarea?$outarea?g" 1sh/$shinput
    sed -i "s/xinput/$input/g" 1sh/$shinput
    sed -i "s/xoutput/$output/g" 1sh/$shinput
    sed -i "s/xjob/$1/g" 1sh/$shinput
