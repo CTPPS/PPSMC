@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# INPUT PARAMETERS
+
+# Input LHE file to perform the simulation chain
+input=
+# Area with pLHE input file and storage for output files:
+farea=
+# Number of events to be processed per file:
+nevt=0
+# Split in how many output files:
+nfiles=0
+
+# GRID CERTIFICATE
+# Place your personal GRID certificate at /afs/cern.ch/user/<u>/<user>/private/
+# with permissions set to 0600
+
+# User GRID certificate filename, e.g., x509up_u12345: 
+gridcert="x509up_u"
