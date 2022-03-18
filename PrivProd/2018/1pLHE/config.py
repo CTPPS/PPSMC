@@ -22,7 +22,7 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("LHESource",
     fileNames = cms.untracked.vstring('file:xinput'),
-#    skipEvents=cms.untracked.uint32(xskip)
+    firstEvent = cms.untracked.uint32(xfirst),
 )
 
 process.options = cms.untracked.PSet(
