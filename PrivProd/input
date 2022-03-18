@@ -3,7 +3,7 @@
 # INPUT PARAMETERS
 
 # Input LHE file to perform the simulation chain
-input=
+inputlhe=
 # Area with pLHE input file and storage for output files:
 farea=
 # Number of events to be processed per file:
