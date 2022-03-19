@@ -15,7 +15,7 @@ cp xpwd/../mixlist.txt ./mixlist.txt
 xrdcp -s xeos/xarea/GENSIM/xjob/xinput ./xinput
 scramv1 b
 cmsRun xcfginput
-xrdfs mkdir -p xeos/xarea/DRPremix/xjob/
+xrdfs eoscms.cern.ch mkdir -p xeos/xarea/DRPremix/xjob/
 xrdcp -f -s xoutput xeos/xarea/DRPremix/xjob/xoutput
 rm -rf *
 EndOfTestFile
