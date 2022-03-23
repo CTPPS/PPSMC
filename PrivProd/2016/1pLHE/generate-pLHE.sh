@@ -23,6 +23,7 @@ then
    exit 1
 fi
 
+# Check if a LHC input files has been given:
 if [ -z "$inputlhe" ];
 then
     echo ">>> ERROR: missing input LHE file"
@@ -30,6 +31,7 @@ then
     exit 1
 fi
 
+# Check if number of events/files are correct:
 if [ $nevt -lt 1 || $nfiles -lt 1 ];
 then
     echo ">>> ERROR: irrational number of events/files"

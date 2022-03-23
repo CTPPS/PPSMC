@@ -23,13 +23,7 @@ then
    exit 1
 fi
 
-if [ -z "$input" ];
-then
-    echo ">>> ERROR: missing input LHE file"
-    echo "Define the LHE file in the input card"
-    exit 1
-fi
-
+# Check if number of events/files are correct:
 if [ $nevt -lt 1 || $nfiles -lt 1 ];
 then
     echo ">>> ERROR: irrational number of events/files"

@@ -23,13 +23,7 @@ then
    exit 1
 fi
 
-if [ -z "$input" ];
-then
-    echo ">>> ERROR: missing input LHE file"
-    echo "Define the LHE file in the input card"
-    exit 1
-fi
-
+# Check if number of events/files are correct:
 if [ $nevt -lt 1 || $nfiles -lt 1 ];
 then
     echo ">>> ERROR: irrational number of events/files"
@@ -44,7 +38,7 @@ then
 fi
 
 # Confirm user parameters are good:
-echo -e "\e[4mOutput area:\e[0m $farea"
+echo -e "\e[4mOutput area:\e[0m $outarea"
 echo -e "\e[4mFile tag:\e[0m $1"
 echo -e "\e[4mjobname:\e[0m $2"
 read -p "OK? Press [enter]"
@@ -75,7 +69,7 @@ do
    # Copy script template:
    cp ../script.sh 1sh/"$1"_"$i".sh
    # Replace strings in auxiliary files with user inputs:
-   sed -i "s?xarea?$farea?g" 1sh/$shinput
+   sed -i "s?xarea?$outarea?g" 1sh/$shinput
    sed -i "s/xcfginput/$cfginput/g" 1sh/$shinput
    sed -i "s/xinput/$input/g" 1sh/$shinput
    sed -i "s/xoutput/$output/g" 1sh/$shinput
