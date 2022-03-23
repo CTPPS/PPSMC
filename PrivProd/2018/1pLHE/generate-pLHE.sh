@@ -49,7 +49,7 @@ echo -e "\e[4mInput file:\e[0m $input"
 echo -e "\e[4mOutput area:\e[0m $outarea"
 echo -e "\e[4mFile tag:\e[0m $1"
 echo -e "\e[4mjobname:\e[0m $2"
-read -p "OK? Press [enter]"
+read -p ">>> Press [enter] to continue"
 
 # Create local job area:
 step="pLHE"
