@@ -11,6 +11,10 @@ The generate script has 3 user input parameters:
 - `nevt`: number of events to be processed;
 - `nfiles`: number of files to be generated.
 
+plus
+
+- `gridcert`: user GRID VOMS certificate needed at DRPRemix step to read Premix libraries stored in a T2
+
 The command line directive is:
 
 `./generate\* [tag] [job_name]`
@@ -20,10 +24,18 @@ where [job_name] is the HTCondor job label and [tag] defines the folder names fo
 
 ## **Instructions**:
 
-- By default, all input/output files are set to the PPS EOS area. Change the paths accordingly to your needs.
+- By default, all input/output files are set to a EOS area. Change the paths accordingly to your needs.
+
+- The label set in the [tag] argument is used to create the local work directories and as filename for all output files.
 
 - All generate macros have the line `exit 1` commented, which produced the set of files needed for the simulation and submit jobs. Uncomment that line to avoid submitting the jobs.
 
 - The DRPremix step requires a GRID certificate to be placed at `~/private` with permission 0600.
+
+- There are known issues at reading files from the GRID network, namely `FallbackFileOpenError` and `FileReadError` which prevents some jobs to be finished. The script `FallbackChecker.sh` may be used to check missing files and the aforementioned errors. The script works like:
+
+`./FallbackChecker.sh [work dir]`
+
+where `[work dir]` is the directory containing the error logs and has the name as set in the `[tag]` argument.
 
 - MINIAOD step is provided for 2017 only; if needed for other years please contact the coordinator.
