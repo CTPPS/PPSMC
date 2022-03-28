@@ -79,7 +79,7 @@ do
    # Copy config template:
    cp ../config.py 0cfg/$cfginput
    # Replace strings in auxiliary files with user inputs:
-   sed -i "s/xinput/`baseline $input`/g" 0cfg/$cfginput
+   sed -i "s/xinput/`basename $input`/g" 0cfg/$cfginput
    sed -i "s/xevt/$block/g" 0cfg/$cfginput
    sed -i "s/xskip/$(( i*block ))/g" 0cfg/$cfginput
    sed -i "s/xfileout/$output/g" 0cfg/$cfginput
