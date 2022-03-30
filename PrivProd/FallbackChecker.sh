@@ -39,8 +39,11 @@ failRead=($(grep -l FileReadError         ${1}/3err/* | cut -d '.' -f 1 | rev | 
 failFatal=($(grep -l "A fatal system signal" ${1}/3err/* | cut -d '.' -f 1 | rev | cut -d '_' -f 1 | rev))
 
 # Check storage area for missing files:
-files=($(ls $farea/DRPremix/${1} | cut -d '.' -f 1 | rev | cut -d '_' -f 1 | rev))
-jobs=($(seq 0 $($nfiles - 1)))
+year=$(cd .. && basename $(pwd))
+current=$(basename $(pwd))
+echo "Checking $farea/$year/${current:1}/${1}"
+files=($(ls $farea/$year/${current:1}/${1} | cut -d '.' -f 1 | rev | cut -d '_' -f 1 | rev))
+jobs=($(seq 0 $(($nfiles - 1)) ))
 declare -A map
 for key in "${!files[@]}"; do map[${files[$key]}]="$key"; done
 miss=()
@@ -70,7 +73,7 @@ then
         [Nn]* ) exit 1;;
         * ) echo "Please answer (Y)yes or (N)no.";;
     esac
-elif
+else
     echo "No missing jobs."
 fi
 
