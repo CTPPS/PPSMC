@@ -31,7 +31,7 @@ then
 fi
 
 # Check if number of events/files are correct:
-if [ $nevt -lt 1 || $nfiles -lt 1 ];
+if [ $nevt -lt 1 ] || [ $nfiles -lt 1 ];
 then
     echo ">>> ERROR: irrational number of events/files"
     echo "Define a number of events/files to be processed"

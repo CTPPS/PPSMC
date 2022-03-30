@@ -31,7 +31,7 @@ then
     exit 1
 fi
 
-if [ $nevt -lt 1 || $nfiles -lt 1 ];
+if [ $nevt -lt 1 ] || [ $nfiles -lt 1 ];
 then
     echo ">>> ERROR: irrational number of events/files"
     echo "Define a number of events/files to be processed"
@@ -45,7 +45,7 @@ then
 fi
 
 # Confirm user parameters are good:
-echo -e "\e[4mInput file:\e[0m $input"
+echo -e "\e[4mInput file:\e[0m $inputlhe"
 echo -e "\e[4mOutput area:\e[0m $farea"
 echo -e "\e[4mFile tag:\e[0m $1"
 echo -e "\e[4mjobname:\e[0m $2"
@@ -67,7 +67,7 @@ block=$(( nevt/nfiles ))
 for ((i=0; i<=$nfiles-1; i++));
 do
    # Define the auxiliary files:
-   input="$1".lhe
+   input=$inputlhe
    cfginput="$1"_cfg_"$i".py
    shinput="$1"_"$i".sh
    subinput="$1"_"$i".sub
@@ -78,7 +78,7 @@ do
    # Copy config template:
    cp ../config.py 0cfg/$cfginput
    # Replace strings in auxiliary files with user inputs:
-   sed -i "s/xinput/$input/g" 0cfg/$cfginput
+   sed -i "s/xinput/`basename $input`/g" 0cfg/$cfginput
    sed -i "s/xevt/$block/g" 0cfg/$cfginput
    sed -i "s/xskip/$(( i*block ))/g" 0cfg/$cfginput
    sed -i "s/xfileout/$output/g" 0cfg/$cfginput
@@ -89,7 +89,8 @@ do
    # Replace strings in auxiliary files with user inputs:
    sed -i "s/xcfginput/$cfginput/g" 1sh/$shinput
    sed -i "s?xarea?$outarea?g" 1sh/$shinput
-   sed -i "s/xinput/$input/g" 1sh/$shinput
+   sed -i "s?xinput1?$input?g" 1sh/$shinput
+   sed -i "s/xinput2/`basename $input`/g" 1sh/$shinput
    sed -i "s/xoutput/$output/g" 1sh/$shinput
    sed -i "s/xjob/$1/g" 1sh/$shinput
    sed -i 's?xpwd?'`pwd`'?' 1sh/$shinput

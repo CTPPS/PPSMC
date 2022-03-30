@@ -8,7 +8,7 @@ scram project CMSSW_7_1_32_patch1
 cd CMSSW_7_1_32_patch1/src/
 eval `scramv1 runtime -sh`
 cp xpwd/0cfg/xcfginput ./xcfginput
-xrdcp -s xeos/xarea/xinput ./xinput
+xrdcp -s xeos/xinput1 ./xinput2
 scramv1 b
 cmsRun xcfginput
 xrdfs eoscms.cern.ch mkdir -p xeos/xarea/pLHE/xjob/
