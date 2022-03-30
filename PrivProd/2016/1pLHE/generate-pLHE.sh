@@ -90,7 +90,8 @@ do
    # Replace strings in auxiliary files with user inputs:
    sed -i "s/xcfginput/$cfginput/g" 1sh/$shinput
    sed -i "s?xarea?$outarea?g" 1sh/$shinput
-   sed -i "s/xinput/`basename $input`/g" 1sh/$shinput
+   sed -i "s?xinput1?$input?g" 1sh/$shinput
+   sed -i "s/xinput2/`basename $input`/g" 1sh/$shinput
    sed -i "s/xoutput/$output/g" 1sh/$shinput
    sed -i "s/xjob/$1/g" 1sh/$shinput
    sed -i 's?xpwd?'`pwd`'?' 1sh/$shinput
