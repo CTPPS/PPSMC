@@ -59,7 +59,7 @@ block=$(( nevt/nfiles ))
 for ((i=0; i<=$nfiles-1; i++));
 do
    # Define the auxiliary files:
-   input="$1"_pLHE_0.root
+   input="$1"_pLHE_"$i".root
    cfginput="$1"_"$step"_cfg_"$i".py
    shinput="$1"_"$i".sh
    subinput="$1"_"$i".sub
