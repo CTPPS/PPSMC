@@ -32,9 +32,9 @@ where [job_name] is the HTCondor job label and [tag] defines the folder names fo
 
 - The DRPremix step requires a GRID certificate to be placed at `~/private` with permission 0600.
 
-- There are known issues at reading files from the GRID network, namely `FallbackFileOpenError` and `FileReadError` which prevents some jobs to be finished. The script `FallbackChecker.sh` may be used to check missing files and the aforementioned errors. The script works like:
+- There are known issues at reading files from the GRID network, namely `FallbackFileOpenError` and `FileReadError` which prevents some jobs to be finished. The script `jobChecker.sh` may be used to check missing files and the aforementioned errors. The script works like inside one of the simulation step folders:
 
-`./FallbackChecker.sh [work dir]`
+`./jobChecker.sh [work dir]`
 
 where `[work dir]` is the directory containing the error logs and has the name as set in the `[tag]` argument.
 
