@@ -11,7 +11,7 @@ cp xpwd/0cfg/xcfginput ./xcfginput
 xrdcp -s xeos/xinput1 ./xinput2
 scramv1 b
 cmsRun xcfginput
-xrdfs eoscms.cern.ch mkdir -p xeos/xarea/pLHE/xjob/
+xrdfs eoscms.cern.ch mkdir -p xarea/pLHE/xjob/
 xrdcp -f -s xoutput xeos/xarea/pLHE/xjob/xoutput
 rm -rf *
 EndOfTestFile

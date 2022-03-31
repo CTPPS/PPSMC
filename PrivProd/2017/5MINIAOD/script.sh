@@ -10,7 +10,7 @@ eval `scramv1 runtime -sh`
 xrdcp -s xpwd/0cfg/xcfginput ./xcfginput
 scramv1 b
 cmsRun xcfginput
-xrdfs eoscms.cern.ch mkdir -p xeos/xarea/MINIAOD/xjob/
+xrdfs eoscms.cern.ch mkdir -p xarea/MINIAOD/xjob/
 xrdcp -f -s xoutput xeos/xarea/MINIAOD/xjob/xoutput
 rm -rf *
 EndOfTestFile
