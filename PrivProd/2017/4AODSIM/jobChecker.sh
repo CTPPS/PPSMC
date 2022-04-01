@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###################################################################
-#Script Name : FallbackChecker.sh
+#Script Name : jobChecker.sh
 #Description : Check for failed condor jobs and resubmit them
 #Args        : Processing area
 #Author      : Gustavo Gil da Silveira (UFRGS|UERJ, Brazil)
@@ -14,7 +14,7 @@
 if [ $# -eq 0  ]
 then
    echo ">>> ERROR: missing arguments"
-   echo "Usage: ./FallbackChecker.sh [processing area]"
+   echo "Usage: ./jobChecker.sh [processing area]"
    exit 1
 fi
 
