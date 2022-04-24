@@ -1,5 +1,5 @@
 # Private Production
-The folder PrivProd contains the machinery needed to produce simulated private samples for Summer16, Fall17, and Autmn18 scenarios. For all years, the set of files consist of:
+The folder PrivSim contains the machinery needed to produce simulated private samples for Summer16, Fall17, and Autmn18 scenarios. For all years, the set of files consist of:
 
 - `config.py`: CMSSW configuration file;
 - `generate*.sh`: Bash macro to split the production in a certain numbers of jobs;
