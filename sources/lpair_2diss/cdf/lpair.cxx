@@ -48,7 +48,7 @@ extern "C" {
 
 int main(int argc, char* argv[]) {
   // Number of events to generate
-  const int nevent = 500;
+  const int nevent = 500000;
 //  const int nevent = 30;
 
 
