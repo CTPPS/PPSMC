@@ -2,12 +2,13 @@
        IMPLICIT DOUBLE PRECISION (a-h,o-z)
        DOUBLE PRECISION me,mu,f,mxcut
        LOGICAL accepted
+       INTEGER leppdg
        COMMON/inpu/me,mu,ebeam,const,sq
        COMMON/tell/nn
        COMMON/ini/xxx,yyy
-       COMMON/outp/nout
+       COMMON/outp/nout,ilhef
        COMMON/cuts/angcut,encut,etacut,mxcut
-       COMMON/event/accepted
+       COMMON/event/accepted,ndim,x,leppdg
 *
        INTEGER ndim,npoin,nprin,ntreat,nevent
 *     
@@ -30,6 +31,7 @@
        nprin = 1
        nstrat = 0
        n2dim = 7
+       leppdg = ipar(18)
 
 *     First we fetch the Vegas integration grid
 c       OPEN (15,file='dl2.vegas.grid',status='old')
@@ -56,7 +58,9 @@ c       OPEN (17,file='dl2.lattice.2',status='unknown')
        CALL genera(f,ndim,nevent,nstrat,ntreat)
 c       CALL save2(n2dim,17)
 c       CLOSE (17)
-
+c       IF(IPAR(2).EQ.2) THEN
+c         CALL LHEFIL
+c       ENDIF
 *     
 *     
        END

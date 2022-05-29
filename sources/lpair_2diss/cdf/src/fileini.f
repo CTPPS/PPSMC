@@ -8,26 +8,33 @@
       REAL*8  LPAR(20)
       COMMON/DATAPAR/IPAR,LPAR
 *
+      INTEGER nout,ilhef
+      COMMON/outp/nout,ilhef
+*
       INTEGER LUN
-      CHARACTER(len=32) file
+      CHARACTER(len=32) afile
       LOGICAL fexst
+*
+      REAL ulmass
+      EXTERNAL ulmass ! from jetset/pythia
 *
       LUN = 15
       CALL LUGIVE("MSTU(21)=1")
 *
 * LF workaround to pass the input card as an argument
       IF (iargc().gt.0) then
-         CALL getarg(1,file)
+         CALL getarg(1,afile)
       ELSE
-         file='lpair.dat'
+         afile='lpair.dat'
       ENDIF
-      INQUIRE(file=file,exist=fexst) ! ensure the input card exists
+      INQUIRE(file=afile,exist=fexst) ! ensure the input card exists
       IF (fexst.eqv..false.) THEN
          PRINT *,'FILEINI: ERROR! Input card does not exist!'
          STOP
       ENDIF
 *
-      OPEN(LUN,file=file,status='old')
+      PRINT*,'Loading the input card:',afile
+      OPEN(LUN,file=afile,status='old')
 *
       READ(LUN,'(I10)') IPAR(1)  ! event or cross-section calculation
       READ(LUN,'(I10)') IPAR(2)  ! paw histograms/ntuple
@@ -46,9 +53,10 @@
       READ(LUN,'(I10)') IPAR(15) ! SETGEN: nbin
       READ(LUN,'(I10)') IPAR(16) ! vector rotation flag
       READ(LUN,'(I10)') IPAR(17) ! hepevt common block to ascii output
+      READ(LUN,'(I10)') IPAR(18) ! PDG ID of the outgoing leptons
 *
       READ(LUN,'(D10.4)') LPAR(1)  ! incoming particle mass (GeV)
-      READ(LUN,'(D10.4)') LPAR(2)  ! outgoing particle mass (GeV)
+c      READ(LUN,'(D10.4)') LPAR(2)  ! outgoing particle mass (GeV)
       READ(LUN,'(D10.4)') LPAR(3)  ! beam energy (GeV)
       READ(LUN,'(D10.4)') LPAR(4)  ! maximum angle (rad)
       READ(LUN,'(D10.4)') LPAR(5)  ! maximum rapidity
@@ -78,9 +86,10 @@
       PRINT*,'IPAR(15): SETGEN nbin       ',IPAR(15)
       PRINT*,'IPAR(16): reflection flag   ',IPAR(16)
       PRINT*,'IPAR(17): hepevt to ascii   ',IPAR(17)
+      PRINT*,'IPAR(18): outgoing leptons  ',IPAR(18)
+      PRINT*,'            --> mass (GeV): ',ulmass(IPAR(18))
 *
       PRINT*,'LPAR(1):  incoming mass  ',LPAR(1)
-      PRINT*,'LPAR(2):  outgoing mass  ',LPAR(2)
       PRINT*,'LPAR(3):  beam energy    ',LPAR(3)
       PRINT*,'LPAR(4):  max angle      ',LPAR(4)
       PRINT*,'LPAR(5):  max rapidity   ',LPAR(5)

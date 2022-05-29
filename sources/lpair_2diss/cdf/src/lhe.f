@@ -30,7 +30,9 @@ c---------------------------------------------------------------------------
       DOUBLE PRECISION lpar(20)
       COMMON/datapar/ipar,lpar
       
-      WRITE(ilhef,1000) '<header>Sample generated using LPAIR</header>'
+      WRITE(ilhef,1000) '<header>'
+      WRITE(ilhef,1000) 'Sample generated using LPAIR'
+      WRITE(ilhef,1000) '</header>'
       WRITE(ilhef,1000) '<init>'
       WRITE(ilhef,1100) ipar(8),ipar(8),lpar(3),lpar(3),
      +                  ' 0 0 10042 10042 2 1'
@@ -80,7 +82,7 @@ c     Event common
       INTEGER I,J
 
       WRITE(ilhef,*) '<event>'
-      WRITE(ilhef,*) N,'  661   0.2983460E-04  0.9118800E+02',
+      WRITE(ilhef,*) N,'  661   0.2983460E-04  0.9118800E+02 ',
      &     '0.7821702E-02  0.1300000E+00'
       
       DO 202 I=1,N

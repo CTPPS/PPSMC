@@ -4,7 +4,7 @@
        COMMON/inpu/me,mu,ebeam,const,sq
        COMMON/tell/nn
        COMMON/ini/xxx,yyy
-       COMMON/outp/nout
+       COMMON/outp/nout,ilhef
        COMMON/cuts/angcut,encut,etacut,mxcut
 *
        INTEGER ndim,npoin,nprin,ntreat,nevent
@@ -17,7 +17,8 @@
        DOUBLE PRECISION x(10)
 *     
 *     
-       EXTERNAL f
+       REAL ulmass ! from jetset/pythia
+       EXTERNAL f,ulmass
 *     
        pi = dacos(-1.d+00)
        nout=6
@@ -26,7 +27,7 @@
 *     
 *     ---- particle masses (GeV)
        me = lpar(1)             ! incoming particle
-       mu = lpar(2)             ! outgoing particle
+       mu = ulmass(ipar(18))    ! outgoing particle
 *     
 *     ---- beam energy (GeV)
        ebeam = lpar(3)
@@ -60,6 +61,12 @@ c       print *,xx
        CALL vegas(f,0.1d-03,ipar(5),ipar(6),ipar(7),0,ipar(4))
        CALL save(ipar(5),15)
        CLOSE (15)
+*
+       IF(IPAR(2).eq.2) THEN
+         ILHEF=15
+         call LHEBEG
+         call LHEHDR
+       ENDIF
 *     
 *     
        END
