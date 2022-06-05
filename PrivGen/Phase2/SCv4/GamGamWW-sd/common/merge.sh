@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash:
 
 # mapping arguments:
 split=$1
@@ -41,7 +41,7 @@ cp ${eosarea}/${proc}/split/${proc}_0.card ${eosarea}/${proc}/${proc}.card
 evts=$(grep -c "<event>" ${proc}_0.lhe)
 files=$split
 sed -i "/nev/s/$evts/$(( evts*files ))/g" ${eosarea}/${proc}/${proc}.card
-# clean working node
+# clean working node:
 rm -rf *.lhe.xz
 rm -rf *.lhe
 rm -rf `whoami`.cc

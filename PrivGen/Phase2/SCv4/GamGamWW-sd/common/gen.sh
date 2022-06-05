@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash:
 
 # setting up environment:
 source /cvmfs/sft.cern.ch/lcg/views/setupViews.sh LCG_101 x86_64-centos7-gcc8-opt
@@ -45,9 +45,9 @@ then
 fi
 # folders for split and single files:
 xrdfs eoscms.cern.ch mkdir -p ${ppseos}/${proc}/split
-# run
+# run:
 ./superchic < ${label}.card > ${label}.txt
-# deal with output
+# deal with output:
 mv evrecs/evrec${label}.dat ${label}.lhe
 # if xz file corrupted, exits to force condor to re-run:
 xz ${label}.lhe
@@ -59,7 +59,7 @@ fi
 xrdcp -f ${label}.lhe.xz  ${eosroot}/${ppseos}/${proc}/split/${label}.lhe.xz
 xrdcp -f ${label}.txt  ${eosroot}/${ppseos}/${proc}/split/${label}.txt
 xrdcp -f ${label}.card ${eosroot}/${ppseos}/${proc}/split/${label}.card
-# clean working node
+# clean working node:
 cd ../..
 rm -rf superchic* 
 rm -rf `whoami`.cc
