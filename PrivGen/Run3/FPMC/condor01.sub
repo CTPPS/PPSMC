@@ -1,0 +1,26 @@
+executable            = script.sh
+EOSROOT               = root://eoscms.cern.ch
+EOSAREA               = /eos/cms/store/group/phys_pps/MC/requests_2022run3
+
+should_transfer_files = YES
+requirements          = (OpSysAndVer =?= "CentOS7")
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+requirements = Machine =!= LastRemoteHost
+
+transfer_input_files  = input.card
++JobFlavour           = "tomorrow"
++JobBatchName         = "FPMC_Run3_01"
+
+EVTS                  = 6000
+SPLIT                 = 50
+
+A0W                   = 0E0
+ACW                   = 1E-6
+xproc                 = FPMC_WW_13p6TeV_a0w_$(A0W)_aCw_$(ACW)_decayALL_pt0
+output                = out/$(xproc).$(ClusterId).out
+error                 = err/$(xproc).$(ClusterId).err
+output_destination    = $(EOSROOT)/$(EOSAREA)/$(xproc)/split
+transfer_output_files = $(xproc)_$(ProcId).lhe, $(xproc)_$(ProcId).card, $(xproc)_$(ProcId).txt
+arguments             = $(EOSAREA) $(xproc) $(A0W) $(ACW) $(EVTS) $(ProcId)
+queue $(SPLIT)
