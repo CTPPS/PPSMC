@@ -1,0 +1,16 @@
+JOB Generator common/gen.sub
+JOB Merge common/merge.sub
+JOB MCDBToEDM common/mcdb.sub
+VARS Generator EVTS="6000"
+VARS ALL_NODES SPLIT="50"
+VARS ALL_NODES A0W="0E0"
+VARS ALL_NODES ACW="0E0"
+VARS ALL_NODES A1="0E0"
+VARS ALL_NODES A2="1E-12"
+VARS ALL_NODES JOBNAME="FPMC-Run3-A2-12"
+VARS ALL_NODES PROCLABEL="FPMC_AA_14TeV_a1_$(A1)_a2_$(A2)_decayALL_pt0"
+VARS ALL_NODES EOSROOT="root://eoscms.cern.ch"
+VARS ALL_NODES EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2022Phase2/"
+VARS MCDBToEDM vCMSSW="CMSSW_12_3_1"
+PARENT Generator CHILD Merge
+PARENT Merge CHILD MCDBToEDM
