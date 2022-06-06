@@ -1,0 +1,16 @@
+executable            = common/merge.sh
+
+requirements          = (OpSysAndVer =?= "CentOS7")
+RequestCpus           = 1
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+requirements = Machine =!= LastRemoteHost
++JobFlavour           = "tomorrow"
++JobBatchName         = "SCv4-Run3-$(PROCLABEL)-merge"
+
+output                = out/merge/$(PROCLABEL)-$(ClusterId).$(ProcId).out
+error                 = err/merge/$(PROCLABEL)-$(ClusterId).$(ProcId).err
+log                   = log/merge/$(PROCLABEL)-$(ClusterId).$(ProcId).log
+
+arguments             = $(SPLIT) $(EOSROOT) $(EOSAREA) $(PROCLABEL)
+queue
