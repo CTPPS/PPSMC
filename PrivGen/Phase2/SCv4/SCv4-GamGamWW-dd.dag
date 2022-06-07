@@ -1,0 +1,14 @@
+JOB Generator common/gen.sub
+JOB Merge common/merge.sub
+JOB MCDBToEDM common/mcdb.sub
+VARS Generator EVT="300"
+VARS Generator PID="55"
+VARS ALL_NODES SPLIT="10"
+VARS ALL_NODES XPT="25"
+VARS ALL_NODES XSCATT="dd"
+VARS ALL_NODES PROCLABEL="SCv4_GamGamWW-$(XSCATT)_14TeV_pt$(XPT)"
+VARS ALL_NODES EOSROOT="root://eoscms.cern.ch"
+VARS ALL_NODES EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2022Phase2/"
+VARS MCDBToEDM vCMSSW="CMSSW_12_3_4"
+PARENT Generator CHILD Merge
+PARENT Merge CHILD MCDBToEDM
