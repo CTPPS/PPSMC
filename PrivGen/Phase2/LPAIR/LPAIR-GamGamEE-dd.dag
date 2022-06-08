@@ -1,0 +1,14 @@
+JOB Generator common/gen.sub
+JOB Splitter common/splitter.sub
+JOB MCDBToEDM common/mcdb.sub
+VARS ALL_NODES EVTS="300"
+VARS Generator PID="11"
+VARS ALL_NODES XPT="25"
+VARS ALL_NODES SPLIT="50"
+VARS ALL_NODES COLL="dd"
+VARS ALL_NODES PROCLABEL="LPAIR_GamGamEE_$(COLL)_14TeV_pt$(XPT)"
+VARS ALL_NODES EOSROOT="root://eoscms.cern.ch"
+VARS ALL_NODES EOSAREA="/eos/cms/store/group/phys_pps/MC/misc/sandbox/"
+VARS ALL_NODES vCMSSW="CMSSW_12_3_5"
+PARENT Generator CHILD Splitter
+PARENT Splitter CHILD MCDBToEDM
