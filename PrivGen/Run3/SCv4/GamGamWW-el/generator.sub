@@ -1,0 +1,10 @@
+executable            = generator.sh
+output                = out/gen-$(ClusterId).$(ProcId).out
+error                 = err/gen-$(ClusterId).$(ProcId).err
+log                   = log/gen-$(ClusterId).$(ProcId).log
+should_transfer_files = YES
+transfer_input_files  = input.card
++JobFlavour           = "microcentury"
++JobBatchName         = "SCv4_Run3_GamGamWW-$(XSCATT)"
+arguments             = $(ProcId) $(EVT) $(PROCLABEL) $(EOSROOT) $(EOSAREA)
+queue $(SPLIT)

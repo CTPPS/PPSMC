@@ -1,0 +1,5 @@
+JOB Generator generator.sub
+JOB Merge merge.sub
+JOB MCDBToEDM MCDBToEDM.sub
+PARENT Generator CHILD Merge
+PARENT Merge CHILD MCDBToEDM

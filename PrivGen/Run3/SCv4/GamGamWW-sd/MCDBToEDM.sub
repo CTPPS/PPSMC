@@ -1,0 +1,9 @@
+executable            = MCDBToEDM.sh
+output                = out/$(ClusterId).$(ProcId).out
+error                 = err/$(ClusterId).$(ProcId).err
+should_transfer_files = YES
+transfer_input_files  = config.py
++JobFlavour           = "tomorrow"
++JobBatchName         = "MCDBToEDM_Run3_$(PROCLABEL)"
+arguments             = $(PROCLABEL) $(vCMSSW) $(EOSAREA)
+queue

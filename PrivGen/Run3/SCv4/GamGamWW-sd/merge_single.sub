@@ -1,0 +1,13 @@
+executable            = merge.sh
++JobFlavour           = "tomorrow"
++JobBatchName         = "SCv4_Run3_$(PROCLABEL)_merge"
+
+SPLIT=50
+PROCLABEL=SCv4_GamGamWW-sd_13p6TeV_pt25
+EOSROOT=root://eoscms.cern.ch
+EOSAREA=/eos/cms/store/group/phys_pps/MC/requests_2022run3
+
+output                = out/merge-$(PROCLABEL).$(ClusterId).$(ProcId).out
+error                 = err/merge-$(PROCLABEL).$(ClusterId).$(ProcId).err
+arguments             = $(SPLIT) $(EOSROOT) $(EOSAREA) $(PROCLABEL)
+queue

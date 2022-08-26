@@ -1,0 +1,7 @@
+executable            = merge.sh
++JobFlavour           = "microcentury"
++JobBatchName         = "SCv4_Run3_$(PROCLABEL)_merge"
+output                = out/merge-$(PROCLABEL).$(ClusterId).$(ProcId).out
+error                 = err/merge-$(PROCLABEL).$(ClusterId).$(ProcId).err
+arguments             = $(SPLIT) $(EOSROOT) $(EOSAREA) $(PROCLABEL)
+queue

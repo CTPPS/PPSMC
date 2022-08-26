@@ -1,0 +1,13 @@
+executable            = generator.sh
+output                = out/$(ClusterId).$(ProcId).out
+error                 = err/$(ClusterId).$(ProcId).err
+should_transfer_files = YES
+transfer_input_files  = input.card
++JobFlavour           = "tomorrow"
+
++JobBatchName         = "SuperCHIC_Run3_GamGamMuMu-sd"
+EVT                   = 6000
+SPLIT                 = 50
+PROCLABEL             = SCv4_GamGamMuMu-sd_13p6TeV_pt25
+arguments             = $(ProcId) $(EVT) $(PROCLABEL)
+queue $(SPLIT)
