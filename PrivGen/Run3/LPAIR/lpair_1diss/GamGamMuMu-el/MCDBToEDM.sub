@@ -1,0 +1,12 @@
+executable            = MCDBToEDM.sh
+output                = out/MCDBToEDM.$(ClusterId).$(ProcId).out
+error                 = err/MCDBToEDM.$(ClusterId).$(ProcId).err
+should_transfer_files = YES
+transfer_input_files  = MCDBToEDM.py
++JobFlavour           = "tomorrow"
++JobBatchName         = "MCDBToEDM_Run3_$(PROCLABEL)"
+PROCLABEL             = LPAIR_GamGamMuMu_el-el_13p6TeV_pt25
+EOSAREA               = /eos/cms/store/group/phys_pps/MC/requests_2022run3
+vCMSSW                = CMSSW_12_3_1 
+arguments             = $(PROCLABEL) $(vCMSSW) $(EOSAREA)
+queue

@@ -1,0 +1,24 @@
+executable            = generator.sh
+EOSROOT               = root://eoscms.cern.ch
+EOSAREA               = /eos/cms/store/group/phys_pps/MC/requests_2022run3
+
+should_transfer_files = YES
+transfer_input_files  = input.card
++JobFlavour           = "tomorrow"
++JobBatchName         = "LPAIR_Run3_$(ProdProc)"
+
+XEVT                  = 300000
+SPLIT                 = 1
+XID                   = 11
+XSCATT1               = 2
+XSCATT2               = 2
+XPT                   = 25
+ProdProc              = GamGamEE_el-el
+xproc                 = LPAIR_$(ProdProc)_13p6TeV_pt$(XPT)
+output                = out/$(xproc).$(ClusterId).$(ProcId).out
+error                 = err/$(xproc).$(ClusterId).$(ProcId).err
+# uncomment to use xfer and remove $(EOSROOT) from arguments below
+#output_destination    = $(EOSROOT)/$(EOSAREA)/$(xproc)
+#transfer_output_files = $(xproc)_$(ProcId).lhe, $(xproc)_$(ProcId).card, $(xproc)_$(ProcId).txt
+arguments             = $(EOSAREA) $(xproc) $(XID) $(XSCATT1) $(XSCATT2) $(XPT) $(ProcId) $(XEVT) $(EOSROOT)
+queue $(SPLIT)
