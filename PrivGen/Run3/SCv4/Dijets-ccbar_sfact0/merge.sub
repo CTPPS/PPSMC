@@ -1,0 +1,17 @@
+executable            = merge.sh
+EOSROOT               = root://eoscms.cern.ch
+EOSAREA               = /eos/cms/store/group/phys_pps/MC/requests_2022run3
+
+#should_transfer_files = YES
++JobFlavour           = "tomorrow"
++JobBatchName         = "SCv4_Run3_$(xproc)_merge"
+
+SPLIT                 = 50
+xproc                 = SCv4_Dijets-ccbar_sfact0_13p6TeV_pt0
+output                = out/merge-$(xproc).$(ClusterId).$(ProcId).out
+error                 = err/merge-$(xproc).$(ClusterId).$(ProcId).err
+# uncommnt these lines and transfer files above to use xfer:
+#output_destination    = $(EOSROOT)/$(EOSAREA)/$(xproc)
+#transfer_output_files = $(xproc).lhe, round_$(xproc).txt
+arguments             = $(SPLIT) $(EOSROOT) $(EOSAREA) $(xproc)
+queue
