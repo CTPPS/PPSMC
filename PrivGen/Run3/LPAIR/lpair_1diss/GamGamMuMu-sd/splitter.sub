@@ -1,0 +1,19 @@
+executable            = splitter.sh
+EOSROOT               = root://eoscms.cern.ch
+EOSAREA               = /eos/cms/store/group/phys_pps/MC/requests_2022run3
+
+should_transfer_files = YES
+transfer_input_files  = config.py, writer.py
++JobFlavour           = "tomorrow"
++JobBatchName         = "splitter-LPAIR_Run3_$(ProdProc)"
+
+XEVT                  = 300000
+SPLIT                 = 50
+XPT                   = 25
+ProdProc              = GamGamMuMu_inel-el
+xproc                 = LPAIR_$(ProdProc)_13p6TeV_pt$(XPT)
+vCMSSW                = CMSSW_12_3_1
+output                = out/splitter-$(xproc).$(ClusterId).$(ProcId).out
+error                 = err/splitter-$(xproc).$(ClusterId).$(ProcId).err
+arguments             = $(EOSROOT) $(EOSAREA) $(xproc) $(ProcId) $(XEVT) $(SPLIT) $(vCMSSW)
+queue $(SPLIT)

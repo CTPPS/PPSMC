@@ -1,0 +1,10 @@
+executable            = merge.sh
+
++JobFlavour           = "tomorrow"
++JobBatchName         = "merge-$(JOBNAME)"
+
+output                = out/merge-$(ClusterId).$(ProcId).out
+error                 = err/merge-$(ClusterId).$(ProcId).err
+log                   = log/merge-$(ClusterId).$(ProcId).log
+arguments             = $(SPLIT) $(EOSROOT) $(EOSAREA) $(PROCLABEL)
+queue

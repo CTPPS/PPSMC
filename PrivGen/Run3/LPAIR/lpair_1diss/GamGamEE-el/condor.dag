@@ -1,0 +1,5 @@
+JOB Generator generator.sub
+JOB Splitter splitter.sub
+JOB MCDBToEDM MCDBToEDM.sub 
+PARENT Generator CHILD Splitter
+PARENT Splitter CHILD MCDBToEDM
