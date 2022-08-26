@@ -5,7 +5,7 @@ MAXEV       xevt
 TYPEPR      'EXC'
 TYPINT      'QED'
 ECMS        14000.
-IPROC       16010
+IPROC       xid
 NFLUX       15
 NRN1        xrand1
 NRN2        xrand2

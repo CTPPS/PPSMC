@@ -3,6 +3,7 @@ JOB Merge common/merge.sub
 JOB MCDBToEDM common/mcdb.sub
 VARS Generator EVTS="6000"
 VARS ALL_NODES SPLIT="50"
+VARS Generator PID="16010"
 VARS ALL_NODES A0W="0E0"
 VARS ALL_NODES ACW="0E0"
 VARS ALL_NODES A1="0E0"
