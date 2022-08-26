@@ -1,0 +1,12 @@
+executable            = mcdb.sh
+
+should_transfer_files = YES
+transfer_input_files  = config.py
++JobFlavour           = "tomorrow"
++JobBatchName         = "mcdb-$(JOBNAME)"
+
+output                = out/mcdb-$(ClusterId).$(ProcId).out
+error                 = err/mcdb-$(ClusterId).$(ProcId).err
+log                   = log/mcdb-$(ClusterId).$(ProcId).log
+arguments             = $(PROCLABEL) $(vCMSSW) $(EOSAREA)
+queue

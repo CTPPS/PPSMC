@@ -1,0 +1,16 @@
+executable            = gen.sh
+requirements          = (OpSysAndVer =?= "CentOS7")
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+requirements = Machine =!= LastRemoteHost
+
+should_transfer_files = YES
+transfer_input_files  = input.card
++JobFlavour           = "tomorrow"
++JobBatchName         = "gen-$(JOBNAME)"
+
+output                = out/gen-$(ClusterId)-$(ProcId).out
+error                 = err/gen-$(ClusterId)-$(ProcId).err
+log                   = log/gen-$(ClusterId)-$(ProcId).log
+arguments             = $(EOSROOT) $(EOSAREA) $(PROCLABEL) $(A0W) $(ACW) $(EVTS) $(ProcId)
+queue $(SPLIT)
