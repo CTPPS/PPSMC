@@ -10,6 +10,7 @@ a1=$6
 a2=$7
 evts=$8
 it=$9
+pid=${10}
 # setting up environment:
 . /cvmfs/sft.cern.ch/lcg/contrib/gcc/8/x86_64-centos7-gcc8-opt/setup.sh
 # installing mc generator:
@@ -24,6 +25,7 @@ make -j8 fpmc-lhe
 label=${tag}_${it}
 cp ../../input.card ${label}.card 
 sed -i "s@xlabel@$label@g" ${label}.card
+sed -i "s@xid@$pid@g" ${label}.card
 sed -i "s@xevt@$evts@g" ${label}.card
 sed -i "s@xrand1@$RANDOM@g" ${label}.card
 sed -i "s@xrand2@$RANDOM@g" ${label}.card

@@ -14,5 +14,5 @@ output                = out/gen/$(PROCLABEL)-$(ClusterId).$(ProcId).out
 error                 = err/gen/$(PROCLABEL)-$(ClusterId).$(ProcId).err
 log                   = log/gen/$(PROCLABEL)-$(ClusterId).$(ProcId).log
 
-arguments             = $(EOSROOT) $(EOSAREA) $(PROCLABEL) $(A0W) $(ACW) $(A1) $(A2) $(EVTS) $(ProcId)
+arguments             = $(EOSROOT) $(EOSAREA) $(PROCLABEL) $(A0W) $(ACW) $(A1) $(A2) $(EVTS) $(ProcId) $(PID)
 queue $(SPLIT)
