@@ -1,0 +1,12 @@
+requirements          = (OpSysAndVer =?= "CentOS7")
+error                 = err/$(PRODNAME)/$(ClusterId).$(ProcId).err
++JobBatchName         = "$(PRODNAME)"
++JobFlavour           = "longlunch"
+
+should_transfer_files = YES
+transfer_input_files  = $(CONFIG)
+
+executable            = script.sh
+arguments             = $(ProcId) $(INPUTPATH) $(SCRAMARCH) $(CMSSW) $(EOSAREA) $(PRODNAME) $(CONFIG)
+
+queue $(FILES)

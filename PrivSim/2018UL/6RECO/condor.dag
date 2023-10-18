@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR RECO STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB RECO RECO.sub
+# EMAIL ALERT:
+#SCRIPT POST RECO sendmail.sh RECO xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS RECO INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS RECO FILES="1000"
+VARS RECO SCRAMARCH="slc7_amd64_gcc700"
+VARS RECO CMSSW="CMSSW_10_6_17_patch1"
+VARS RECO CONFIG="RECO_cfg.py"
+VARS RECO EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS RECO PRODNAME="xjobname"
+VARS RECO PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+

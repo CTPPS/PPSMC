@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR pLHE STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB pLHE pLHE.sub
+# EMAIL ALERT:
+#SCRIPT POST pLHE sendmail.sh pLHE xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS pLHE INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS pLHE FILES="1000"
+VARS pLHE SCRAMARCH="slc7_amd64_gcc700"
+VARS pLHE CMSSW="CMSSW_10_6_21"
+VARS pLHE CONFIG="pLHE_cfg.py"
+VARS pLHE EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS pLHE PRODNAME="xjobname"
+VARS pLHE PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+

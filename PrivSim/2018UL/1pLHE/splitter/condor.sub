@@ -1,0 +1,12 @@
+requirements          = (OpSysAndVer =?= "CentOS7")
+error                 = err/$(JOBNAME)/$(ClusterId).$(ProcId).err
++JobBatchName         = "$(JOBNAME)"
++JobFlavour           = "espresso"
+
+should_transfer_files = YES
+transfer_input_files  = config.py
+
+executable            = script.sh
+arguments             = $(ProcId) $(INPUTLHE) $(TOTALEVT) $(FILES) $(EVTPERFILE) $(SCRAMARCH) $(CMSSW) $(EOSAREA)
+
+queue $(FILES)

@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR MINI STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB MINI MINI.sub
+# EMAIL ALERT:
+#SCRIPT POST MINI sendmail.sh MINI xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS MINI INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS MINI FILES="1000"
+VARS MINI SCRAMARCH="slc7_amd64_gcc700"
+VARS MINI CMSSW="CMSSW_10_6_20"
+VARS MINI CONFIG="MINI_cfg.py"
+VARS MINI EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS MINI PRODNAME="xjobname"
+VARS MINI PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+

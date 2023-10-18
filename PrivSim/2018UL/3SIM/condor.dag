@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR SIM STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB SIM SIM.sub
+# EMAIL ALERT:
+#SCRIPT POST SIM sendmail.sh SIM xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS SIM INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS SIM FILES="1000"
+VARS SIM SCRAMARCH="slc7_amd64_gcc700"
+VARS SIM CMSSW="CMSSW_10_6_21"
+VARS SIM CONFIG="SIM_cfg.py"
+VARS SIM EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS SIM PRODNAME="xjobname"
+VARS SIM PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+

@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR GEN STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB GEN GEN.sub
+# EMAIL ALERT:
+#SCRIPT POST GEN sendmail.sh GEN xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS GEN INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS GEN FILES="1000"
+VARS GEN SCRAMARCH="slc7_amd64_gcc700"
+VARS GEN CMSSW="CMSSW_10_6_21"
+VARS GEN CONFIG="GEN_cfg.py"
+VARS GEN EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS GEN PRODNAME="xjobname"
+VARS GEN PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+
