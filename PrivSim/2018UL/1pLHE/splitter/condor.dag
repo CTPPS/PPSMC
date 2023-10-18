@@ -1,0 +1,9 @@
+JOB Gen condor.sub
+VARS Gen INPUTLHE="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/FPMC_WW_SM_13tev_a0w_0_aCw_5E-7_semi_pt0/FPMC_WW_SM_13tev_a0w_0_aCw_5E-7_semi_pt0.lhe"
+VARS Gen TOTALEVT="262574"
+VARS Gen FILES="526"
+VARS Gen EVTPERFILE="500"
+VARS Gen JOBNAME="GEN-WW-0-5E-7"
+VARS Gen SCRAMARCH="slc6_amd64_gcc700"
+VARS Gen CMSSW="CMSSW_10_6_21"
+VARS Gen EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/AAWW_a0w_0_aCw_5E-7_semi"

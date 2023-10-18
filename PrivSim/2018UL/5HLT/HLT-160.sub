@@ -1,0 +1,20 @@
+requirements          = (OpSysAndVer =?= "CentOS7")
+error                 = err/$(PRODNAME)/$(ClusterId).$(ProcId).err
++JobBatchName         = "$(PRODNAME)"
++JobFlavour           = "longlunch"
+max_retries           = 5
+
+should_transfer_files = YES
+transfer_input_files  = $(CONFIG)
+
+INPUTPATH=/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/
+SCRAMARCH=slc7_amd64_gcc700
+CMSSW=CMSSW_10_2_16_UL
+CONFIG=HLT_cfg.py
+EOSAREA=/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/
+PRODNAME=FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0
+
+executable            = script.sh
+arguments             = 160 $(INPUTPATH) $(SCRAMARCH) $(CMSSW) $(EOSAREA) $(PRODNAME) $(CONFIG)
+
+queue

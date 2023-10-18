@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR DRPremix STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB DRPremix DRPremix.sub
+# EMAIL ALERT:
+#SCRIPT POST DRPremix sendmail.sh DRPremix xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS DRPremix INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS DRPremix FILES="1000"
+VARS DRPremix SCRAMARCH="slc7_amd64_gcc700"
+VARS DRPremix CMSSW="CMSSW_10_6_21"
+VARS DRPremix CONFIG="DRPremix_cfg.py"
+VARS DRPremix EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS DRPremix PRODNAME="xjobname"
+VARS DRPremix PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+

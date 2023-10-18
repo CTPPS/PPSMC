@@ -1,0 +1,17 @@
+# CONDOR DAGMAN FOR HLT STEP IN UL MC SIMULATION
+
+# RUN JOB:
+JOB HLT HLT.sub
+# EMAIL ALERT:
+#SCRIPT POST HLT sendmail.sh HLT xjobname
+
+# ALL VARS TO RUN JOBS:
+VARS HLT INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS HLT FILES="1000"
+VARS HLT SCRAMARCH="slc7_amd64_gcc700"
+VARS HLT CMSSW="CMSSW_10_2_16_UL"
+VARS HLT CONFIG="HLT_cfg.py"
+VARS HLT EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+#VARS HLT PRODNAME="xjobname"
+VARS HLT PRODNAME="FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0"
+
