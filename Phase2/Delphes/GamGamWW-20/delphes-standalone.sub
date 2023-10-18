@@ -1,0 +1,22 @@
+JOBNAME=FPMC-AAWW-SM
+A0W=0E0
+ACW=0E0
+PROCLABEL=FPMC_WW_14TeV_a0w_$(A0W)_aCw_$(ACW)_noHADR_pt0
+EOSROOT=root://eoscms.cern.ch
+EOSAREA=/eos/cms/store/group/phys_pps/Phase2
+
+executable            = delphes.sh
+requirements          = (OpSysAndVer =?= "CentOS7")
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+RequestCpus           = 4
++JobFlavour           = "tomorrow"
++JobBatchName         = "delphes-$(JOBNAME)"
+should_transfer_files = YES
+transfer_input_files  = delphes-pps.tar.gz
+output                = out/delphes/$(PROCLABEL)-$(ClusterId).$(ProcId).out
+error                 = err/delphes/$(PROCLABEL)-$(ClusterId).$(ProcId).err
+log                   = log/delphes/$(PROCLABEL)-$(ClusterId).$(ProcId).log
+arguments             = $(ProcId) $(EOSROOT) $(EOSAREA) $(vCMSSW) $(PROCLABEL)
+queue 5
+
