@@ -1,0 +1,11 @@
+JOB Generator ../common/gen.sub
+JOB Simu ../common/delphes.sub
+VARS ALL_NODES SPLIT="200"
+VARS ALL_NODES JOBNAME="FPMC-AAWW-01"
+VARS ALL_NODES A0W="0E0"
+VARS ALL_NODES ACW="1E-7"
+VARS ALL_NODES PROCLABEL="FPMC_WW_14TeV_a0w_$(A0W)_aCw_$(ACW)_noHADR_pt0"
+VARS ALL_NODES EOSROOT="root://eoscms.cern.ch"
+VARS ALL_NODES EOSAREA="/eos/cms/store/group/phys_pps/Phase2"
+VARS ALL_NODES vCMSSW="CMSSW_13_1_0"
+PARENT Generator CHILD Simu

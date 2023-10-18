@@ -1,0 +1,14 @@
+executable            = gen.sh
+requirements          = (OpSysAndVer =?= "CentOS7")
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
++JobFlavour            = "tomorrow"
++JobBatchName          = "gen-$(JOBNAME)"
+should_transfer_files = YES
+transfer_input_files  = config_gen.py,config_decay.py
+output                = out/gen/$(PROCLABEL)-$(ClusterId).$(ProcId).out
+error                 = err/gen/$(PROCLABEL)-$(ClusterId).$(ProcId).err
+log                   = log/gen/$(PROCLABEL)-$(ClusterId).$(ProcId).log
+arguments             = $(ProcId) $(EOSROOT) $(EOSAREA) $(vCMSSW) $(PROCLABEL)
+queue $(SPLIT)
+
