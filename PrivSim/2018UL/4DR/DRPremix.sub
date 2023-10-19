@@ -1,13 +1,19 @@
+executable            = ../common/DR.sh
+
 requirements          = (OpSysAndVer =?= "CentOS7")
-error                 = err/$(PRODNAME)/$(ClusterId).$(ProcId).err
-+JobBatchName         = "$(PRODNAME)"
+RequestCpus           = 4
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+requirements = Machine =!= LastRemoteHost
++JobBatchName         = "DR-$(JOBNAME)"
 +JobFlavour           = "longlunch"
 num_retries           = 5
+
+error                 = ../$(PRODNAME)/err/DR/$(ClusterId).$(ProcId).err
 
 should_transfer_files = YES
 transfer_input_files  = $(CONFIG)
 
-executable            = script.sh
 arguments             = $(ProcId) $(INPUTPATH) $(SCRAMARCH) $(CMSSW) $(EOSAREA) $(PRODNAME) $(CONFIG)
 
 queue $(FILES)
