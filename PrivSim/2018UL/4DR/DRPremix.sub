@@ -1,4 +1,4 @@
-executable            = ../common/DR.sh
+executable            = common/DR.sh
 
 requirements          = (OpSysAndVer =?= "CentOS7")
 RequestCpus           = 4
@@ -9,7 +9,7 @@ requirements = Machine =!= LastRemoteHost
 +JobFlavour           = "longlunch"
 num_retries           = 5
 
-error                 = ../$(PRODNAME)/err/DR/$(ClusterId).$(ProcId).err
+error                 = $(PRODNAME)/err/DR/$(ClusterId).$(ProcId).err
 
 should_transfer_files = YES
 transfer_input_files  = $(CONFIG)
