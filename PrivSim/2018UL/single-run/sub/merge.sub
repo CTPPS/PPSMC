@@ -1,4 +1,4 @@
-executable            = ../common/merge.sh
+executable            = common/merge.sh
 
 requirements          = (OpSysAndVer =?= "CentOS7")
 on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
@@ -7,7 +7,7 @@ requirements = Machine =!= LastRemoteHost
 +JobFlavour           = "tomorrow"
 +JobBatchName         = "MERGE-$(JOBNAME)"
 
-error                 = ../$(PRODNAME)/err/merge/$(ClusterId).$(ProcId).err
+error                 = $(PRODNAME)/err/LHE/merge-$(ClusterId).$(ProcId).err
 
 arguments             = $(FILES) $(EOSROOT) $(EOSAREA) $(PRODNAME)
 queue
