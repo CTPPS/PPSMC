@@ -35,8 +35,8 @@ if ! xz -tvv ${tag}.lhe.xz &> /dev/null; then
     exit 1
 fi
 xrdcp -f ${tag}.lhe.xz ${eosroot}/${eosarea}/${tag}/LHE/${tag}.lhe.xz
-cp ${eosarea}/${tag}/LHE/split/${tag}_0.txt ${eosarea}/${tag}/${tag}.txt
-cp ${eosarea}/${tag}/LHE/split/${tag}_0.card ${eosarea}/${tag}/${tag}.card
+cp ${eosarea}/${tag}/LHE/split/${tag}_0.txt ${eosarea}/${tag}/LHE/${tag}.txt
+cp ${eosarea}/${tag}/LHE/split/${tag}_0.card ${eosarea}/${tag}/LHE/${tag}.card
 # replace total number of events in card for bookkeeping:
 evts=$(grep -c "<event>" ${tag}_0.lhe)
 files=$split
