@@ -1,0 +1,18 @@
+executable            = ../common/GEN.sh
+
+requirements          = (OpSysAndVer =?= "CentOS7")
+RequestCpus           = 4
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+requirements = Machine =!= LastRemoteHost
++JobFlavour           = "espresso"
++JobBatchName         = "GEN-$(JOBNAME)"
+
+error                 = ../$(PRODNAME)/err/GEN/$(ClusterId).$(ProcId).err
+
+should_transfer_files = YES
+transfer_input_files  = $(CONFIG)
+
+arguments             = $(ProcId) $(INPUTPATH) $(SCRAMARCH) $(CMSSW) $(EOSAREA) $(PRODNAME) $(CONFIG)
+
+queue $(FILES)
