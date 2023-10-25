@@ -10,4 +10,5 @@ requirements = Machine =!= LastRemoteHost
 error                 = $(PRODNAME)/err/LHE/merge-$(ClusterId).$(ProcId).err
 
 arguments             = $(FILES) $(EOSROOT) $(EOSAREA) $(PRODNAME)
+
 queue
