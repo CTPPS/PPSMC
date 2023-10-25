@@ -34,7 +34,7 @@ cd ${cmssw}/src/
 curl -s -k https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/PPS-RunIISummer20UL18pLHEGEN-00004 --retry 3 --create-dirs -o Configuration/GenProduction/python/PPS-RunIISummer20UL18pLHEGEN-00004-fragment.py
 eval `scramv1 runtime -sh`
 scramv1 b -j8
-mv ../../${inputfile} .
+mv ../../$inputfile .
 mv ../../$config .
 cmsRun $config
 xrdcp -fs $output ${stageout}/${output}
