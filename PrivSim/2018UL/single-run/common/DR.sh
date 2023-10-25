@@ -10,14 +10,14 @@ jobname=$6
 config=$7
 
 # job definitions:
-step=RECO
-stagein=${inputpath}/${jobname}/HLT
+step=DRPremix
+stagein=${inputpath}/${jobname}/SIM
 stageout=${eosarea}/${jobname}/${step}
 if [ ! -d ${stageout} ]
 then
     mkdir ${stageout}
 fi
-inputfile=${jobname}_${id}_HLT.root
+inputfile=${jobname}_${id}_SIM.root
 output=${jobname}_${id}_${step}.root
 xrdcp -fs ${stagein}/${inputfile} .
 
