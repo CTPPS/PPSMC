@@ -12,7 +12,7 @@ num_retries           = 5
 error                 = $(PRODNAME)/err/DR/$(ClusterId).$(ProcId).err
 
 should_transfer_files = YES
-transfer_input_files  = $(CONFIG)
+transfer_input_files  = common/$(CONFIG)
 
 arguments             = $(ProcId) $(INPUTPATH) $(SCRAMARCH) $(CMSSW) $(EOSAREA) $(PRODNAME) $(CONFIG)
 
