@@ -18,7 +18,7 @@ energy=${11}
 git clone https://github.com/fpmc-hep/fpmc.git
 cd fpmc
 sed -i "s@\^lxplus\[0-9\]+@@g" cmake/UseEnvironment.cmake
-cp ../fpmc_lhe.f Examples/fpmc_lhe.f
+cp ../fpmc_lhe.f Examples/
 mkdir build
 cd build
 cmake3 ..
@@ -26,7 +26,7 @@ make -j8 fpmc-lhe
 # preping input card:
 label=${tag}_${it}
 cp ../../input.card ${label}.card 
-#sed '$d' ../../input.card > ${label}.card
+sed '$d' ../../input.card > ${label}.card
 sed -i "s@xlabel@$label@g" ${label}.card
 sed -i "s@xid@$pid@g" ${label}.card
 sed -i "s@xeng@$energy@g" ${label}.card

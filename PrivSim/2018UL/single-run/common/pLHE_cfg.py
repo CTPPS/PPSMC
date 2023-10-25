@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename PPS-RunIIFall18pLHE-00008_1_cfg.py --eventcontent LHE --customise Configuration/DataProcessing/Utils.addMonitoring --datatier LHE --fileout file:PPS-RunIIFall18pLHE-00008.root --conditions 102X_upgrade2018_realistic_v11 --step NONE --geometry DB:Extended --filein lhe:19340 --era Run2_2018 --no_exec --mc -n 10000
+# with command line options: Configuration/GenProduction/python/PPS-RunIISummer20UL18pLHEGEN-00004-fragment.py --python_filename PPS-RunIISummer20UL18pLHEGEN-00004_1_cfg.py --eventcontent LHE --customise Configuration/DataProcessing/Utils.addMonitoring --datatier LHE --fileout file:PPS-RunIISummer20UL18pLHEGEN-00004_0.root --conditions 106X_upgrade2018_realistic_v4 --customise_commands process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(100) --step NONE --filein lhe:19711 --era Run2_2018 --no_exec --mc -n 100
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2018_cff import Run2_2018
@@ -21,11 +21,18 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("LHESource",
-        fileNames = cms.untracked.vstring('file:xinput'),
+        fileNames = cms.untracked.vstring('file:xinput')
 )
 
 process.options = cms.untracked.PSet(
 
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    annotation = cms.untracked.string('Configuration/GenProduction/python/PPS-RunIISummer20UL18pLHEGEN-00004-fragment.py nevts:100'),
+    name = cms.untracked.string('Applications'),
+    version = cms.untracked.string('$Revision: 1.19 $')
 )
 
 # Output definition
@@ -66,6 +73,7 @@ process = addMonitoring(process)
 
 # Customisation from command line
 
+process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(100)
 # Add early deletion of temporary data products to reduce peak memory need
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)

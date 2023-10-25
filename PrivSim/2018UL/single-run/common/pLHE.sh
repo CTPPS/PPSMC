@@ -33,6 +33,7 @@ eval `scramv1 runtime -sh`
 scramv1 b -j8
 
 # prep config files:
+mv ../../${inputfile} .
 mv ../../$config .
 sed -i "s@xinput@$inputfile@g" $config
 sed -i "s@xfileout@$output@g" $config
