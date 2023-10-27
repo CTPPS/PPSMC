@@ -10,7 +10,7 @@ jobname=$6
 config=$7
 
 # job definitions:
-step=DRPremix
+step=DR
 stagein=${inputpath}/${jobname}/SIM
 stageout=${eosarea}/${jobname}/${step}
 if [ ! -d ${stageout} ]

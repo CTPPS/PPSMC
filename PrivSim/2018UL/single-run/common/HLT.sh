@@ -11,7 +11,7 @@ config=$7
 
 # job definitions:
 step=HLT
-stagein=${inputpath}/${jobname}/DRPremix
+stagein=${inputpath}/${jobname}/DR
 stageout=${eosarea}/${jobname}/${step}
 if [ ! -d ${stageout} ]
 then
