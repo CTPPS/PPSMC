@@ -8,7 +8,7 @@ requirements = Machine =!= LastRemoteHost
 +JobFlavour           = "espresso"
 +JobBatchName         = "GEN-$(JOBNAME)"
 
-error                 = $(PRODNAME)/err/GEN/$(ClusterId).$(ProcId).err
+error                 = err/GEN/$(ClusterId).$(ProcId).err
 
 should_transfer_files = YES
 transfer_input_files  = common/$(CONFIG)

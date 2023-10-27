@@ -10,8 +10,8 @@ requirements = Machine =!= LastRemoteHost
 should_transfer_files = YES
 transfer_input_files  = common/$(INPUTCARD),common/$(EXTRA)
 
-error                 = $(PRODNAME)/err/LHE/$(ClusterId).$(ProcId).err
-out                   = $(PRODNAME)/out/LHE/$(ClusterId).$(ProcId).out
+error                 = err/LHE/$(ClusterId).$(ProcId).err
+out                   = out/LHE/$(ClusterId).$(ProcId).out
 
 arguments             = $(EOSROOT) $(EOSAREA) $(PRODNAME) $(A0W) $(ACW) $(A1) $(A2) $(EVTS) $(ProcId) $(PID) $(ENERGY)
 
