@@ -1,8 +1,10 @@
 # CONDOR DAGMAN FOR RUN-2 UL MC SIMULATION
 
 # LIST OF JOBS:
+# PRE to create local err folders FIXME
 JOB LHE sub/fpmc-semi.sub
-JOB Merge sub/merge.sub
+# SENDMAIL AFTER EACH STEP FIXME
+JOB Merge sub/MERGE.sub
 JOB pLHE sub/pLHE.sub
 JOB GEN sub/GEN.sub
 JOB SIM sub/SIM.sub
@@ -10,6 +12,7 @@ JOB DR sub/DR.sub
 JOB HLT sub/HLT.sub
 JOB RECO sub/RECO.sub
 JOB MINI sub/MINI.sub
+JOB CLEANUP sub/CLEAN.sub
 
 ##########
 #
@@ -66,7 +69,6 @@ VARS MINI CMSSW="CMSSW_10_6_20"
 VARS MINI CONFIG="MINI_cfg.py"
 
 # SIMULATION CHAIN:
-# PRE to create local err folders
 PARENT LHE CHILD Merge
 PARENT Merge CHILD pLHE
 PARENT pLHE CHILD GEN
@@ -75,4 +77,5 @@ PARENT SIM CHILD DR
 PARENT DR CHILD HLT
 PARENT HLT CHILD RECO
 PARENT RECO CHILD MINI
-# FINAL to cleanup root of intermediate steps
+PARENT MINI CHILD CLEANUP
+# FINAL to cleanup root of intermediate steps FIXME
