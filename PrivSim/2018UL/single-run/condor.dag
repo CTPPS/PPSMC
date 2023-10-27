@@ -19,20 +19,22 @@ JOB CLEANUP sub/CLEAN.sub
 # USER INPUTS
 #
 
-# GLOBAL DEFINITIONS:
+# LHE DEFINITIONS:
 VARS LHE ENERGY="13000"
 VARS LHE EVTS="50"
 VARS LHE PID="16010"
-VARS ALL_NODES INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
-VARS ALL_NODES FILES="10"
-VARS ALL_NODES JOBNAME="FPMC-Run2-11"
-VARS ALL_NODES PRODNAME="FPMC_WW_13TeV_a0w_$(A0W)_aCw_$(ACW)_SemiDecay_pt0"
-VARS ALL_NODES EOSROOT="root://eoscms.cern.ch"
-VARS ALL_NODES EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
 VARS ALL_NODES A0W="3E-7"
 VARS ALL_NODES ACW="1E-7"
 VARS ALL_NODES A1="0E0"
 VARS ALL_NODES A2="0E0"
+
+# GLOBAL DEFINITIONS:
+VARS ALL_NODES INPUTPATH="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
+VARS ALL_NODES FILES="10"
+VARS ALL_NODES JOBNAME="FPMC-Run2-$(A0W)-$(ACW)"
+VARS ALL_NODES PRODNAME="FPMC_WW_13TeV_a0w_$(A0W)_aCw_$(ACW)_SemiDecay_pt0"
+VARS ALL_NODES EOSROOT="root://eoscms.cern.ch"
+VARS ALL_NODES EOSAREA="/eos/cms/store/group/phys_pps/MC/requests_2019ul/private/UL18/"
 
 ##########
 
