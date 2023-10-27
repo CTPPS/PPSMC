@@ -1,0 +1,15 @@
+executable            = common/cleanup.sh
+
+requirements          = (OpSysAndVer =?= "CentOS7")
+RequestCpus           = 4
+on_exit_remove        = (ExitBySignal == False) && (ExitCode == 0)
+max_retries           = 5
+requirements = Machine =!= LastRemoteHost
++JobBatchName         = "CLEAN-$(PRODNAME)"
++JobFlavour           = "longlunch"
+
+error                 = err/clean-$(ClusterId).$(ProcId).err
+
+arguments             = $(EOSAREA) $(PRODNAME)
+
+queue

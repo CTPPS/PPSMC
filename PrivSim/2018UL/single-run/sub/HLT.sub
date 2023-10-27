@@ -9,7 +9,7 @@ requirements = Machine =!= LastRemoteHost
 +JobFlavour           = "longlunch"
 num_retries           = 5
 
-error                 = $(PRODNAME)/err/HLT/$(ClusterId).$(ProcId).err
+error                 = err/HLT/$(ClusterId).$(ProcId).err
 
 should_transfer_files = YES
 transfer_input_files  = common/$(CONFIG)
