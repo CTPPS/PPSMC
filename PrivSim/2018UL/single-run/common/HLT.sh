@@ -17,7 +17,7 @@ if [ ! -d ${stageout} ]
 then
     mkdir ${stageout}
 fi
-inputfile=${jobname}_${id}_DRPremix.root
+inputfile=${jobname}_${id}_DR.root
 output=${jobname}_${id}_${step}.root
 xrdcp -fs ${stagein}/${inputfile} .
 
