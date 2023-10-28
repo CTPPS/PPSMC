@@ -8,5 +8,4 @@ mkdir -p err/DR
 mkdir -p err/HLT
 mkdir -p err/RECO
 mkdir -p err/MINI
-mkdir -p out/LHE
 
