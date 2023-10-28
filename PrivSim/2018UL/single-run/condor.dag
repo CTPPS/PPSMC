@@ -2,17 +2,36 @@
 
 # LIST OF JOBS:
 SCRIPT PRE LHE init.sh
+
 JOB LHE sub/fpmc-semi.sub
-# SENDMAIL AFTER EACH STEP FIXME
+SCRIPT POST LHE sendmail.sh $JOB
+
 JOB Merge sub/MERGE.sub
+SCRIPT POST Merge sendmail.sh $JOB
+
 JOB pLHE sub/pLHE.sub
+SCRIPT POST pLHE sendmail.sh $JOB
+
 JOB GEN sub/GEN.sub
+SCRIPT POST GEN sendmail.sh $JOB
+
 JOB SIM sub/SIM.sub
+SCRIPT POST SIM sendmail.sh $JOB
+
 JOB DR sub/DR.sub
+SCRIPT POST DR sendmail.sh $JOB
+
 JOB HLT sub/HLT.sub
+SCRIPT POST HLT sendmail.sh $JOB
+
 JOB RECO sub/RECO.sub
+SCRIPT POST RECO sendmail.sh $JOB
+
 JOB MINI sub/MINI.sub
+SCRIPT POST MINI sendmail.sh $JOB
+
 JOB CLEANUP sub/CLEAN.sub
+SCRIPT POST CLEANUP sendmail.sh $JOB
 
 ##########
 #
