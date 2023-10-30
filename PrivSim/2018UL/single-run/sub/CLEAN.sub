@@ -9,7 +9,8 @@ requirements = Machine =!= LastRemoteHost
 +JobFlavour           = "longlunch"
 
 error                 = err/clean-$(ClusterId).$(ProcId).err
+output                = err/clean-$(ClusterId).$(ProcId).out
 
-arguments             = $(EOSAREA) $(PRODNAME)
+arguments             = $(EOSAREA) $(PRODNAME) $(CMSSW) $(SCRAMARCH)
 
 queue
