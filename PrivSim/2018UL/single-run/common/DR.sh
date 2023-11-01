@@ -29,7 +29,7 @@ sed -i "s@xfileout@$output@g" $config
 export HOME=/tmp # https://github.com/cms-sw/cmssw/issues/33466
 export EOS_MGM_URL=root://eoscms.cern.ch
 source /cvmfs/cms.cern.ch/cmsset_default.sh
-export SCRAM_ARCH=${scram}
+export SCRAM_ARCH=$scram
 scram project $cmssw
 cd ${cmssw}/src/
 eval `scramv1 runtime -sh`
