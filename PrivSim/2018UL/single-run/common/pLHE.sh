@@ -8,10 +8,10 @@ cmssw=$4
 eosarea=$5
 jobname=$6
 config=$7
+step=$8
 
 # job definitions:
-step=pLHE
-stagein=${inputpath}/${jobname}/LHE/split
+stagein=${inputpath}/${jobname}/${8}/split
 stageout=${eosarea}/${jobname}/${step}
 if [ ! -d ${stageout} ]
 then
