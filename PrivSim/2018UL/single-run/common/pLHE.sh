@@ -25,8 +25,8 @@ output=${jobname}_${id}_${step}.root
 # start:
 export EOS_MGM_URL=root://eoscms.cern.ch
 source /cvmfs/cms.cern.ch/cmsset_default.sh
-export SCRAM_ARCH=${scram}
-scram project ${cmssw}
+export SCRAM_ARCH=$scram
+scram project $cmssw
 cd ${cmssw}/src/
 curl -s -k https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/PPS-RunIISummer20UL18pLHEGEN-00004 --retry 3 --create-dirs -o Configuration/GenProduction/python/PPS-RunIISummer20UL18pLHEGEN-00004-fragment.py
 eval `scramv1 runtime -sh`
