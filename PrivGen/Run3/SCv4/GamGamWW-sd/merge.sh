@@ -8,7 +8,7 @@ done
 # remove header:
 for ((j=1; j<=${1}-1; j++));
 do
-    tail -n +86 ${4}_${j}.lhe > tmp_${j}.dat
+    ed -n '/<event>/,$p' ${4}_${j}.lhe > tmp_${j}.dat
     mv tmp_${j}.dat ${4}_${j}.lhe
 done
 # remove last line:
