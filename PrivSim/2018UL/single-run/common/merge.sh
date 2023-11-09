@@ -14,7 +14,7 @@ done
 # remove header:
 for ((j=1; j<=${split}-1; j++));
 do
-    tail -n +86 ${tag}_${j}.lhe > tmp_${j}.dat
+    sed -n '/<event>/,$p' ${4}_${j}.lhe > tmp_${j}.dat
     mv tmp_${j}.dat ${tag}_${j}.lhe
 done
 # remove last line:
