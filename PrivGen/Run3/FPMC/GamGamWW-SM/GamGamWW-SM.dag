@@ -1,3 +1,4 @@
+SCRIPT PRE Generator init.sh
 JOB Generator gen.sub
 JOB Merge merge.sub
 JOB MCDBToEDM mcdb.sub
